@@ -30,7 +30,8 @@
     "node-neat": "^1.7.2",
     "node-normalize-scss": "^1.0.3",
     "node-sass-json-importer": "^1.0.2",
-    "sassdoc": "^2.1.15"
+    "sassdoc": "^2.1.15",
+    "gulp-sequence": "^0.4.1"
   },
   "author": "One Agency",
   "license": "MIT",
