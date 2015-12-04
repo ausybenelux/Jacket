@@ -1,6 +1,6 @@
 {
   "name": "oneagency-jacket",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures. Ready to be plugged in Ocelot or ready to run standalone.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
