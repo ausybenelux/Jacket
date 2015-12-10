@@ -5,6 +5,7 @@ $colors: (
   white: #FFF,
   black: #000,
   gray: #D2D2D2,
+  grid: #F00,
   error: #F0062C,
   success: #4DB51F,
 );
@@ -12,4 +13,4 @@ $colors: (
 /// base text-color
 //// @group Colors
 /// @type Color
-$text-color: map-get($colors, "gray");
+$text-color: color(gray);
