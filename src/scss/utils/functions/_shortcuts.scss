@@ -6,7 +6,7 @@
   @if map-has-key($map, $key) {
     @return map-get($map, $key);
   } @else {
-    @error "ERROR: The color is not available.";
+    @warn "Key: `#{$key}` is not available in the list.";
   }
 }
 
