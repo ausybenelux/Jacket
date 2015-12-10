@@ -12,6 +12,7 @@
 // Gulp and some tools
 var gulp = require("gulp-help")(require("gulp"));
 var gutil = require("gulp-util");
+var notifier = require('terminal-notifier');
 var chalk = require("chalk");
 var browserSync = require('browser-sync').create();
 var gulpSequence = require('gulp-sequence');
@@ -70,6 +71,8 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
       gutil.log(gutil.colors.black.bgRed(" FILE:", gutil.colors.red.bgBlack(" " + (err.message.split("\n")[0]))));
       gutil.log(gutil.colors.black.bgRed(" LINE:", gutil.colors.red.bgBlack(" " + err.line)));
       gutil.log(gutil.colors.black.bgRed(" COLUMN:", gutil.colors.red.bgBlack(" " + err.column)));
+      gutil.log(gutil.colors.black.bgRed(" ERROR:", gutil.colors.red.bgBlack(" " + err.formatted.split("\n")[0])));
+      notifier(err.message.split("\n")[0], { title: "LINE " + err.line });
       return this.emit("end");
     })
     .pipe(prefix(config.autoprefixer))
