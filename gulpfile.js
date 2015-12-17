@@ -26,6 +26,9 @@ var sourcemaps = require("gulp-sourcemaps");
 var scsslint = require('gulp-scss-lint');
 var sassdoc = require("sassdoc");
 
+// Css
+var minifyCss = require('gulp-minify-css');
+
 // Load configuration file
 var config = require("./config.json");
 
@@ -53,7 +56,7 @@ gulp.task("favicons", "Generates cross-device favicons from assets/img/logo/favi
 // -----------------------------------------------------------------------------
 
 gulp.task("sass", "Compiles your SCSS files to CSS", function () {
-  return gulp.src(config.path.scss)
+  return gulp.src(config.path.scss + "/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({
@@ -82,11 +85,21 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
 });
 
 // -----------------------------------------------------------------------------
+// CSS MINIFY -- https://www.npmjs.com/package/gulp-minify-css
+// -----------------------------------------------------------------------------
+
+gulp.task("css-minify", function() {
+  gulp.src(config.path.css + "/*.css")
+    .pipe(minifyCss({keepSpecialComments : false}))
+    .pipe(gulp.dest(config.path.css))
+});
+
+// -----------------------------------------------------------------------------
 // SCSS LINT -- https://www.npmjs.com/package/gulp-scss-lint
 // -----------------------------------------------------------------------------
 
 gulp.task("scss-lint", "Scans your SCSS files for errors", function() {
-  gulp.src(config.path.scss)
+  gulp.src(config.path.scss + "/**/*.scss")
     .pipe(scsslint());
 });
 
@@ -107,7 +120,7 @@ gulp.task("browser-sync", "Set up a server with BrowserSync and test across devi
 // -----------------------------------------------------------------------------
 
 gulp.task("watch", "Watches your SASS files", function() {
-  gulp.watch(config.path.scss, ["sass"]);
+  gulp.watch(config.path.scss + "/**/*.scss", ["sass"]);
 });
 
 // -----------------------------------------------------------------------------
@@ -121,7 +134,6 @@ gulp.task("sassdoc", "Create the Scss documentation for your project", function(
     }));
 });
 
-
 // -----------------------------------------------------------------------------
 // DEFAULT TASK
 // -----------------------------------------------------------------------------
@@ -129,6 +141,7 @@ gulp.task("sassdoc", "Create the Scss documentation for your project", function(
 gulp.task("default", gulpSequence(
     "help",
     "sass",
+   // "css-minify",
     "scss-lint",
     "watch",
     "browser-sync"
