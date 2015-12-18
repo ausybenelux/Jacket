@@ -10,31 +10,31 @@ $positions: (
   "bottom-right": "null 0 0 null"
 );
 
-.abs {
+.-abs {
   position: absolute;
 
   @each $position, $value in $positions {
-    &.#{$position} {
+    &.-#{$position} {
       @include position(absolute, $value);
     }
   }
 }
 
-.rel {
+.-rel {
   position: relative;
 
   @each $position, $value in $positions {
-    &.#{$position} {
+    &.-#{$position} {
       @include position(relative, $value);
     }
   }
 }
 
-.fix {
+.-fix {
   position: fixed;
 
   @each $position, $value in $positions {
-    &.#{$position} {
+    &.-#{$position} {
       @include position(fixed, $value);
     }
   }
