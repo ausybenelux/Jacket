@@ -32,3 +32,13 @@ $default-border-radius: 10px !default;
 //// @group Defaults
 /// @type Value
 $default-border-width: 3px !default;
+
+/// Default value for itteration of the box-related classes
+//// @group Defaults
+/// @type Value
+$default-itterate-length: 15 !default;
+
+/// Default value for the ratio that is used in the box-related classes
+//// @group Defaults
+/// @type Value
+$default-itterate-ratio: .2 !default;
