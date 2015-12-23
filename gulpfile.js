@@ -40,7 +40,7 @@ var errorCallBack = function (error, metadata) {
   }
 
   console.log(metadata, 'Metadata produced during the build process');
-}
+};
 
 // -----------------------------------------------------------------------------
 // FAVICONS -- https://github.com/haydenbleasel/favicons
