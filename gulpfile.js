@@ -26,6 +26,9 @@ var sourcemaps = require("gulp-sourcemaps");
 var scsslint = require('gulp-scss-lint');
 var sassdoc = require("sassdoc");
 
+// Jade
+var jade = require('gulp-jade');
+
 // Load configuration file
 var config = require("./config.json");
 
@@ -91,13 +94,29 @@ gulp.task("scss-lint", "Scans your SCSS files for errors", function() {
 });
 
 // -----------------------------------------------------------------------------
+// JADE-- https://www.npmjs.com/package/gulp-jade
+// -----------------------------------------------------------------------------
+
+gulp.task("jade", "Compile templates with the jade template engine", function() {
+  gulp.src(config.path.jade + "/**/*.jade")
+    .pipe(jade({
+      pretty: true
+    }))
+    .on("error", function(err) {
+      this.emit("end")
+    })
+    .pipe(gulp.dest(config.path.dist))
+    .pipe(browserSync.stream())
+});
+
+// -----------------------------------------------------------------------------
 // BROWSERSYNC -- http://www.browsersync.io/docs/gulp/
 // -----------------------------------------------------------------------------
 
 gulp.task("browser-sync", "Set up a server with BrowserSync and test across devices", function() {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: config.path.dist
     }
   });
 });
@@ -108,6 +127,7 @@ gulp.task("browser-sync", "Set up a server with BrowserSync and test across devi
 
 gulp.task("watch", "Watches your SASS files", function() {
   gulp.watch(config.path.scss, ["sass"]);
+  gulp.watch(config.path.jade + "/**/*.jade", ["jade"]);
 });
 
 // -----------------------------------------------------------------------------
@@ -130,6 +150,7 @@ gulp.task("default", gulpSequence(
     "help",
     "sass",
     "scss-lint",
+    "jade",
     "watch",
     "browser-sync"
   )
