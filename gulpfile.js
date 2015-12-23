@@ -94,7 +94,7 @@ gulp.task("css-minify", function() {
       keepSpecialComments : false,
       advanced: false
     }))
-    .pipe(gulp.dest(config.path.css))
+    .pipe(gulp.dest(config.path.css));
 });
 
 // -----------------------------------------------------------------------------
