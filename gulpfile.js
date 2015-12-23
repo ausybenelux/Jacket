@@ -46,7 +46,7 @@ var errorCallBack = function (error, metadata) {
 // FAVICONS -- https://github.com/haydenbleasel/favicons
 // -----------------------------------------------------------------------------
 
-gulp.task("favicons", "Generates cross-device favicons from assets/img/logo/favicon.png", function() {
+gulp.task("favicons", "Generates cross-device favicons from dist/img/logo/favicon.png", function() {
   return favicons(config.favicons, errorCallBack);
 });
 
@@ -88,7 +88,7 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
 // CSS MINIFY -- https://www.npmjs.com/package/gulp-minify-css
 // -----------------------------------------------------------------------------
 
-gulp.task("css-minify", function() {
+gulp.task("css-minify", "Minifies css files for production enviroments",  function() {
   gulp.src(config.path.css + "/*.css")
     .pipe(minifyCss({
       keepSpecialComments : false,
