@@ -90,7 +90,10 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
 
 gulp.task("css-minify", function() {
   gulp.src(config.path.css + "/*.css")
-    .pipe(minifyCss({keepSpecialComments : false}))
+    .pipe(minifyCss({
+      keepSpecialComments : false,
+      advanced: false
+    }))
     .pipe(gulp.dest(config.path.css))
 });
 
