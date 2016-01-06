@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/Crosscheck/jacket/issues"
   },
+  "engines": {
+    "node": ">=4.2.4"
+  },
   "homepage": "https://github.com/Crosscheck/jacket#readme"
 }
