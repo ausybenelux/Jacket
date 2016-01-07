@@ -6,3 +6,4 @@
 [![devDependencies](https://david-dm.org/Crosscheck/Jacket/dev-status.svg)](https://david-dm.org/Crosscheck/Jacket#info=devDependencies)
 [![downloads](https://img.shields.io/npm/dm/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
 [![license](https://img.shields.io/npm/l/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
+[![node](https://img.shields.io/node/v/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
