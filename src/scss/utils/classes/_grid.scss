@@ -63,21 +63,21 @@ $grids: (1, 2, 3, 4, 5, 6);
   .center-col-#{$i} {
     &.mobile {
       @include media(med(mobile)) {
-        @include span-columns($i);
+        @include span-columns($i of $grid-columns);
         @include shift(($grid-columns - $i) / 2);
       }
     }
 
     &.tablet {
       @include media(med(tablet)) {
-        @include span-columns($i);
+        @include span-columns($i of $grid-columns);
         @include shift(($grid-columns - $i) / 2);
       }
     }
 
     &.desktop {
       @include media(med(desktop)) {
-        @include span-columns($i);
+        @include span-columns($i of $grid-columns);
         @include shift(($grid-columns - $i) / 2);
       }
     }

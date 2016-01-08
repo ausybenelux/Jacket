@@ -1,7 +1,7 @@
 {
   "name": "oneagency-jacket",
-  "version": "1.0.3",
-  "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures. Ready to be plugged in Ocelot or ready to run standalone.",
+  "version": "1.0.6",
+  "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,21 +22,28 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-help": "^1.6.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-minify-css": "^1.2.2",
     "gulp-sass": "^2.0.4",
     "gulp-sass-glob": "0.0.2",
     "gulp-scss-lint": "^0.3.0",
+    "gulp-sequence": "^0.4.1",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.7",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
     "node-normalize-scss": "^1.0.3",
     "node-sass-json-importer": "^1.0.2",
     "sassdoc": "^2.1.15",
-    "gulp-sequence": "^0.4.1"
+    "terminal-notifier": "^0.1.2"
   },
   "author": "One Agency",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Crosscheck/jacket/issues"
+  },
+  "engines": {
+    "node": ">=4.2.4"
   },
   "homepage": "https://github.com/Crosscheck/jacket#readme"
 }

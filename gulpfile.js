@@ -26,6 +26,12 @@ var sourcemaps = require("gulp-sourcemaps");
 var scsslint = require('gulp-scss-lint');
 var sassdoc = require("sassdoc");
 
+// Jade
+var jade = require('gulp-jade');
+
+// Css
+var minifyCss = require('gulp-minify-css');
+
 // Load configuration file
 var config = require("./config.json");
 
@@ -37,13 +43,13 @@ var errorCallBack = function (error, metadata) {
   }
 
   console.log(metadata, 'Metadata produced during the build process');
-}
+};
 
 // -----------------------------------------------------------------------------
 // FAVICONS -- https://github.com/haydenbleasel/favicons
 // -----------------------------------------------------------------------------
 
-gulp.task("favicons", "Generates cross-device favicons from assets/img/logo/favicon.png", function() {
+gulp.task("favicons", "Generates cross-device favicons from dist/img/logo/favicon.png", function() {
   return favicons(config.favicons, errorCallBack);
 });
 
@@ -53,7 +59,7 @@ gulp.task("favicons", "Generates cross-device favicons from assets/img/logo/favi
 // -----------------------------------------------------------------------------
 
 gulp.task("sass", "Compiles your SCSS files to CSS", function () {
-  return gulp.src(config.path.scss)
+  return gulp.src(config.path.scss + "/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
     .pipe(sass({
@@ -82,12 +88,41 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
 });
 
 // -----------------------------------------------------------------------------
+// CSS MINIFY -- https://www.npmjs.com/package/gulp-minify-css
+// -----------------------------------------------------------------------------
+
+gulp.task("css-minify", "Minifies css files for production enviroments",  function() {
+  gulp.src(config.path.css + "/*.css")
+    .pipe(minifyCss({
+      keepSpecialComments : false,
+      advanced: false
+    }))
+    .pipe(gulp.dest(config.path.css));
+});
+
+// -----------------------------------------------------------------------------
 // SCSS LINT -- https://www.npmjs.com/package/gulp-scss-lint
 // -----------------------------------------------------------------------------
 
 gulp.task("scss-lint", "Scans your SCSS files for errors", function() {
-  gulp.src(config.path.scss)
+  gulp.src(config.path.scss + "/**/*.scss")
     .pipe(scsslint());
+});
+
+// -----------------------------------------------------------------------------
+// JADE-- https://www.npmjs.com/package/gulp-jade
+// -----------------------------------------------------------------------------
+
+gulp.task("jade", "Compile templates with the jade template engine", function() {
+  gulp.src(config.path.jade + "/**/*.jade")
+    .pipe(jade({
+      pretty: true
+    }))
+    .on("error", function(err) {
+      this.emit("end")
+    })
+    .pipe(gulp.dest(config.path.dist))
+    .pipe(browserSync.stream())
 });
 
 // -----------------------------------------------------------------------------
@@ -97,7 +132,7 @@ gulp.task("scss-lint", "Scans your SCSS files for errors", function() {
 gulp.task("browser-sync", "Set up a server with BrowserSync and test across devices", function() {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: config.path.dist
     }
   });
 });
@@ -107,7 +142,8 @@ gulp.task("browser-sync", "Set up a server with BrowserSync and test across devi
 // -----------------------------------------------------------------------------
 
 gulp.task("watch", "Watches your SASS files", function() {
-  gulp.watch(config.path.scss, ["sass"]);
+  gulp.watch(config.path.scss + "/**/*.scss", ["sass"]);
+  gulp.watch(config.path.jade + "/**/*.jade", ["jade"]);
 });
 
 // -----------------------------------------------------------------------------
@@ -115,12 +151,11 @@ gulp.task("watch", "Watches your SASS files", function() {
 // -----------------------------------------------------------------------------
 
 gulp.task("sassdoc", "Create the Scss documentation for your project", function() {
-  return gulp.src("assets/scss/utils/**/*.scss")
+  return gulp.src(config.path.scss + "/utils/**/*.scss")
     .pipe(sassdoc({
-      dest: "sassdoc"
+      dest: "dist/sassdoc"
     }));
 });
-
 
 // -----------------------------------------------------------------------------
 // DEFAULT TASK
@@ -129,7 +164,9 @@ gulp.task("sassdoc", "Create the Scss documentation for your project", function(
 gulp.task("default", gulpSequence(
     "help",
     "sass",
+   // "css-minify",
     "scss-lint",
+    "jade",
     "watch",
     "browser-sync"
   )
