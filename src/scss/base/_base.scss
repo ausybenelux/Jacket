@@ -6,8 +6,8 @@
 // Set all dom nodes to border-box
 @if $default-border-box {
   *,
-  *:after,
-  *:before {
+  *::after,
+  *::before {
     box-sizing: inherit;
   }
 

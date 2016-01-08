@@ -6,6 +6,14 @@ linters:
     space_before_bang: true
     space_after_bang: false
 
+  ColorVariable:
+    enabled: false
+
+  ImportantRule:
+    enabled: true
+    exclude:
+      - '**base.scss'
+
   BorderZero:
     enabled: true
 
@@ -26,6 +34,8 @@ linters:
 
   ElsePlacement:
     enabled: true
+    exclude:
+      - '**convert.scss'
     style: same_line # or 'new_line'
 
   EmptyLineBetweenBlocks:
@@ -55,6 +65,7 @@ linters:
 
   ImportPath:
     enabled: true
+
     leading_underscore: false
     filename_extension: false
 

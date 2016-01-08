@@ -15,7 +15,7 @@
 /// @param {variable} $map [none] - map
 /// @param {key} $keys [none] - keys from the map
 @function map-deep-set($map, $keys...) {
-  $map-list: ($map,);
+  $map-list: ($map);
   $result: null;
 
   @if length($keys) == 2 {
