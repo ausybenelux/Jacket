@@ -9,7 +9,10 @@
     "fontAwesome": "font-awesome/scss",
     "scss": "./src/scss",
     "css": "./dist/css",
-    "js": "./dist/js"
+    "js": "./dist/js",
+    "jade": "./src/jade",
+    "dist": "./dist",
+    "src": "./src"
   },
 
   "sass": {
