@@ -1,12 +1,12 @@
 # Jacket
-[![npm](https://nodei.co/npm/oneagency-jacket.png?downloads=true)](https://www.npmjs.org/package/oneagency-jacket)
+[![npm](https://nodei.co/npm/jacket.png?downloads=true)](https://www.npmjs.org/package/jacket)
 
-[![version](https://img.shields.io/npm/v/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
+[![version](https://img.shields.io/npm/v/jacket.svg)](https://www.npmjs.org/package/jacket)
 [![dependencies](https://david-dm.org/Crosscheck/Jacket.svg)](https://david-dm.org/Crosscheck/Jacket)
 [![devDependencies](https://david-dm.org/Crosscheck/Jacket/dev-status.svg)](https://david-dm.org/Crosscheck/Jacket#info=devDependencies)
-[![downloads](https://img.shields.io/npm/dm/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
-[![license](https://img.shields.io/npm/l/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
-[![node](https://img.shields.io/node/v/oneagency-jacket.svg)](https://www.npmjs.org/package/oneagency-jacket)
+[![downloads](https://img.shields.io/npm/dm/jacket.svg)](https://www.npmjs.org/package/jacket)
+[![license](https://img.shields.io/npm/l/jacket.svg)](https://www.npmjs.org/package/jacket)
+[![node](https://img.shields.io/node/v/jacket.svg)](https://www.npmjs.org/package/jacket)
 
 ## Hi there, Awesome Front-end developer.
 
@@ -15,7 +15,7 @@
 
 ### What front-end tools are included?
 
-* **Npm** -- Jacket is an npm package. You can find the package [here](https://www.npmjs.com/package/oneagency-jacket).
+* **Npm** -- Jacket is an npm package. You can find the package [here](https://www.npmjs.com/package/jacket).
 * **Gulp** -- As a build tool, Jacket uses [Gulp](http://gulpjs.com/).
 * **Sass** -- [Bourbon](http://bourbon.io/) & [Neat](http://neat.bourbon.io/), [h5bp normalize](https://html5boilerplate.com/), [autoprefixer](https://twitter.com/autoprefixer) and more.
 * **Smacss and BEVM** -- Structure is [Smacss](http://smacss.com/) based and [BEVM](https://viget.com/extend/bem-sass-modifiers) is encouraged.
