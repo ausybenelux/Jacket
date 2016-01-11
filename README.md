@@ -10,8 +10,8 @@
 
 ## Hi there, Awesome Front-end developer.
 
-> A starterkit with a **strong sane default setup**, **strong a good starting structure** 
-> and **strong powerfull front-end tools** to back you up.
+> A starterkit with a **sane default setup**, **a good starting structure** 
+> and **powerfull front-end tools** to back you up.
 
 ### What front-end tools are included?
 
