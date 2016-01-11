@@ -1,5 +1,5 @@
 {
-  "name": "oneagency-jacket",
+  "name": "jacket",
   "version": "1.0.7",
   "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures.",
   "scripts": {
