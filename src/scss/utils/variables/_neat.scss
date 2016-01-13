@@ -1,7 +1,6 @@
 // BREAKPOINTS
 @import "../../../../breakpoints.json";
 @import "neat-helpers";
-@import "../functions/_shortcuts.scss";
 
 @each $key, $val in $breakpoints {
   $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width), map-get($val, "cols"))))));
@@ -58,7 +57,7 @@ $visual-grid: false;
 /// Sets the visual grid color
 //// @group Neat Settings
 //// @type value
-$visual-grid-color: color(grid);
+$visual-grid-color: map-get($colors, grid);
 
 /// Sets the z-index property of the visual grid. Can be back (behind content) or front (in front of content).
 //// @group Neat Settings
