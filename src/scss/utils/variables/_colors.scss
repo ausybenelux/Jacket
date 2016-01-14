@@ -13,4 +13,4 @@ $colors: (
 /// base text-color
 //// @group Colors
 /// @type Color
-$text-color: color(gray);
+$text-color: map-get($colors, black);
