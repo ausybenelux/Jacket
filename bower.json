@@ -1,6 +1,6 @@
 {
-  "name": "Jacket",
-  "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures. Ready to be plugged in Ocelot or ready to run standalone.",
+  "name": "<%= appName %>",
+  "description": "<%= appDescription %>",
   "main": "index.js",
   "authors": [
     "One-agency"
@@ -13,7 +13,6 @@
     "Scss-lint",
     "Sass-doc"
   ],
-  "homepage": "https://github.com/Crosscheck/Jacket",
   "moduleType": [],
   "ignore": [
     "**/.*",

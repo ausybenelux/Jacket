@@ -1,13 +1,9 @@
 {
-  "name": "jacket",
-  "version": "1.0.8",
-  "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures.",
+  "name": "<%= appName %>",
+  "version": "1.0.1",
+  "description": "<%= appDescription %>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Crosscheck/Jacket.git"
   },
   "keywords": [
     "Gulp",
@@ -39,12 +35,8 @@
   },
   "author": "One Agency",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Crosscheck/jacket/issues"
-  },
   "engines": {
     "node": ">=5.0.0",
     "npm": ">=2.0.0"
-  },
-  "homepage": "https://github.com/Crosscheck/jacket#readme"
+  }
 }
