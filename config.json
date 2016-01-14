@@ -20,38 +20,38 @@
   },
 
   "favicons": {
-    "files": {
-      "src": "./dist/img/logo/favicon.png",
-      "dest": "./dist/img/favicons/",
-      "html": "./dist/index.html",
-      "iconsPath": "./dist/img/favicons/",
-      "androidManifest": null,
-      "browserConfig": null,
-      "firefoxManifest": null,
-      "yandexManifest": null
-    },
-    "icons": {
-      "android": true,
-      "appleIcon": true,
-      "appleStartup": true,
-      "coast": true,
-      "favicons": true,
-      "firefox": true,
-      "opengraph": true,
-      "windows": true,
-      "yandex": true
+    "masterPicture": "./dist/img/logo/favicon.png",
+    "dest": "./dist/img/favicons/",
+    "iconsPath": "./dist/img/favicons/",
+    "design": {
+      "ios": {
+        "pictureAspect": "noChange"
+      },
+      "desktopBrowser": {},
+      "windows": {
+        "pictureAspect": "noChange",
+        "backgroundColor": "#da532c",
+        "onConflict": "override"
+      },
+      "androidChrome": {
+        "pictureAspect": "noChange",
+        "themeColor": "#ffffff",
+        "manifest": {
+          "name": "Jacket",
+          "display": "browser",
+          "orientation": "notSet",
+          "onConflict": "override"
+        }
+      },
+      "safariPinnedTab": {
+        "pictureAspect": "silhouette",
+        "themeColor": "#5bbad5"
+      }
     },
     "settings": {
-      "appName": "Jacket",
-      "appDescription": "This is the app description",
-      "developer": null,
-      "developerURL": null,
-      "version": 1.0,
-      "background": null,
-      "index": null,
-      "url": null,
-      "silhouette": false,
-      "logging": true
-    }
+      "scalingAlgorithm": "Mitchell",
+      "errorOnImageTooSmall": false
+    },
+    "markupFile": "faviconData.json"
   }
 }
