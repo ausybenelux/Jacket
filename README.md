@@ -13,6 +13,8 @@
 > A starterkit with a **sane default setup**, **a good starting structure** 
 > and **powerfull front-end tools** to back you up.
 
+`npm i jacket`
+
 ### What front-end tools are included?
 
 * **Npm** -- Jacket is an npm package. You can find the package [here](https://www.npmjs.com/package/jacket).
@@ -42,6 +44,7 @@ This task can do: Globbing, Autoprefixing, Sourcemaps, it includes a jsonImporte
 ##### gulp scss-lint
 
 Based on the .scss-lint.yml the Scss-lint task will check if all the scss code you wrote respects the codig standards.
+You should install the gem first with `gem install scss_lint`.
 
 
 ##### gulp jade
