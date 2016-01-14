@@ -23,7 +23,7 @@
     "files": {
       "src": "./dist/img/logo/favicon.png",
       "dest": "./dist/img/favicons/",
-      "html": "./templates/misc/favicons.tpl.php",
+      "html": "./dist/index.html",
       "iconsPath": "./dist/img/favicons/",
       "androidManifest": null,
       "browserConfig": null,
@@ -42,7 +42,7 @@
       "yandex": true
     },
     "settings": {
-      "appName": "Ocelot",
+      "appName": "Jacket",
       "appDescription": "This is the app description",
       "developer": null,
       "developerURL": null,
@@ -52,35 +52,6 @@
       "url": null,
       "silhouette": false,
       "logging": true
-    },
-    "favicon_generation": null
-  },
-
-  "modernizr":{
-    "cache" : true,
-    "devFile" : false,
-    "dest" : false,
-    "options" : [
-        "setClasses",
-        "addTest",
-        "html5printshiv",
-        "testProp",
-        "fnBind"
-    ],
-    "uglify" : true,
-    "tests" : [
-      "touchevents"
-    ],
-    "excludeTests": [],
-    "crawl" : true,
-    "useBuffers" : false,
-    "files" : {
-        "src": [
-            "*[^(g|G)runt(file)?].{js,css,scss}",
-            "**[^node_modules]/**/*.{js,css,scss}",
-            "!lib/**/*"
-        ]
-    },
-    "customTests" : []
+    }
   }
 }
