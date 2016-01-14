@@ -1,6 +1,6 @@
 {
   "name": "<%= appName %>",
-  "description": "<%= appDescription %>",
+  "description": "<%= appDescr %>",
   "main": "index.js",
   "authors": [
     "One-agency"
