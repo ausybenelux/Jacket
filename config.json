@@ -10,7 +10,9 @@
     "scss": "./<%= theme %>src/scss",
     "css": "./<%= theme %>dist/css",
     "js": "./<%= theme %>dist/js",
+    <%if (jade) { %>
     "jade": "./<%= theme %>src/jade",
+    <% } %>
     "dist": "./<%= theme %>dist",
     "src": "./<%= theme %>src"
   },

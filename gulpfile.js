@@ -14,7 +14,9 @@ var gulp = require("gulp-help")(require("gulp"));
 var gutil = require("gulp-util");
 var notifier = require('terminal-notifier');
 var chalk = require("chalk");
+<%if (browserSync) { %>
 var browserSync = require('browser-sync').create();
+<% } %>
 var gulpSequence = require('gulp-sequence');
 
 // Sass
@@ -23,12 +25,17 @@ var sassGlob = require('gulp-sass-glob');
 var jsonImporter = require('node-sass-json-importer');
 var prefix = require("gulp-autoprefixer");
 var sourcemaps = require("gulp-sourcemaps");
+<%if (scssLint) { %>
 var scsslint = require('gulp-scss-lint');
+<% } %>
+<%if (sassDoc) { %>
 var sassdoc = require("sassdoc");
+<% } %>
 
+<%if (jade) { %>
 // Jade
 var jade = require('gulp-jade');
-
+<% } %>
 // Css
 var minifyCss = require('gulp-minify-css');
 
@@ -84,8 +91,10 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
     })
     .pipe(prefix(config.autoprefixer))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.path.css))
+    .pipe(gulp.dest(config.path.css))<%if (!browserSync) { %>;<% } %>
+    <%if (browserSync) { %>
     .pipe(browserSync.stream());
+    <% } %>
 });
 
 // -----------------------------------------------------------------------------
@@ -100,6 +109,7 @@ gulp.task("css-minify", "Minifies css files for production enviroments",  functi
     }))
     .pipe(gulp.dest(config.path.css));
 });
+<%if (scssLint) { %>
 
 // -----------------------------------------------------------------------------
 // SCSS LINT -- https://www.npmjs.com/package/gulp-scss-lint
@@ -109,6 +119,8 @@ gulp.task("scss-lint", "Scans your SCSS files for errors", function() {
   gulp.src(config.path.scss + "/**/*.scss")
     .pipe(scsslint());
 });
+<% } %>
+<%if (jade) { %>
 
 // -----------------------------------------------------------------------------
 // JADE-- https://www.npmjs.com/package/gulp-jade
@@ -122,9 +134,13 @@ gulp.task("jade", "Compile templates with the jade template engine", function() 
     .on("error", function(err) {
       this.emit("end")
     })
-    .pipe(gulp.dest(config.path.dist))
-    .pipe(browserSync.stream())
+    .pipe(gulp.dest(config.path.dist))<%if (!browserSync) { %>;<% } %>
+    <%if (browserSync) { %>
+    .pipe(browserSync.stream());
+    <% } %>
 });
+<% } %>
+<%if (browserSync) { %>
 
 // -----------------------------------------------------------------------------
 // BROWSERSYNC -- http://www.browsersync.io/docs/gulp/
@@ -137,6 +153,7 @@ gulp.task("browser-sync", "Set up a server with BrowserSync and test across devi
     }
   });
 });
+<% } %>
 
 // -----------------------------------------------------------------------------
 // WATCH
@@ -144,8 +161,11 @@ gulp.task("browser-sync", "Set up a server with BrowserSync and test across devi
 
 gulp.task("watch", "Watches your SASS files", function() {
   gulp.watch(config.path.scss + "/**/*.scss", ["sass"]);
+  <%if (jade) { %>
   gulp.watch(config.path.jade + "/**/*.jade", ["jade"]);
+  <% } %>
 });
+<%if (sassDoc) { %>
 
 // -----------------------------------------------------------------------------
 // SASSDOC
@@ -157,6 +177,7 @@ gulp.task("sassdoc", "Create the Scss documentation for your project", function(
       dest: "dist/sassdoc"
     }));
 });
+<% } %>
 
 // -----------------------------------------------------------------------------
 // DEFAULT TASK
@@ -166,9 +187,14 @@ gulp.task("default", gulpSequence(
     "help",
     "sass",
    // "css-minify",
+   <%if (scssLint) { %>
     "scss-lint",
+    <% } %>
+    <%if (jade) { %>
     "jade",
-    "watch",
+    <% } %>
+    "watch"<%if (browserSync) { %>,
     "browser-sync"
+    <% } %>
   )
 );

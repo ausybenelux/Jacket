@@ -1,44 +1,63 @@
+
+<%if (sassDoc) { %>
 /// Set true to set the global box-sizing to border-box
 //// @group Defaults
 /// @type Boolean
+<% } %>
 $default-border-box: true !default;
 
+<%if (sassDoc) { %>
 /// Default lighten ratio
 //// @group Defaults
 /// @type Value
+<% } %>
 $default-lighten-ratio: 10%;
 
+<%if (sassDoc) { %>
 /// Set true to use font smoothing
 //// @group Defaults
 /// @type Boolean
+<% } %>
 $default-font-smoothing: true !default;
 
+<%if (sassDoc) { %>
 /// Set true to disable the outlines
 //// @group Defaults
 /// @type Boolean
+<% } %>
 $default-disable-outline: false !default;
 
+<%if (sassDoc) { %>
 /// Set true to clean menu's of margins and paddings
 //// @group Defaults
 /// @type Boolean
+<% } %>
 $default-clean-menus: true !default;
 
+<%if (sassDoc) { %>
 /// Default value border radius
 //// @group Defaults
 /// @type Value
+<% } %>
 $default-border-radius: 10px !default;
 
+<%if (sassDoc) { %>
 /// Default value border width
 //// @group Defaults
 /// @type Value
+<% } %>
 $default-border-width: 3px !default;
 
+<%if (sassDoc) { %>
 /// Default value for itteration of the box-related classes
 //// @group Defaults
 /// @type Value
+<% } %>
 $default-itterate-length: 15 !default;
 
+<%if (sassDoc) { %>
 /// Default value for the ratio that is used in the box-related classes
 //// @group Defaults
 /// @type Value
+<% } %>
 $default-itterate-ratio: .2 !default;

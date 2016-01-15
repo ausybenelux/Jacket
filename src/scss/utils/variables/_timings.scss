@@ -1,6 +1,8 @@
+<%if (sassDoc) { %>
 /// Timings variables
 //// @group Timings
 //// @type Value
+<% } %>
 $timings: (
   superfast: 250ms,
   fast: 400ms,

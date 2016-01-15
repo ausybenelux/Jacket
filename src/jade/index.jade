@@ -4,17 +4,18 @@ html.no-js(lang='nl-BE')
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
 
-    title Jacket
-    meta(name='description', content='A starterkit with a sane default setup, a good starting structure and powerfull front-end tools.')
+    title <%= appName %>
+    meta(name='description', content='<%= appDescr %>')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     // FAVICONS
 
     // STYLES
-    link(rel='stylesheet', href='css/base-styles.css')
-    link(rel='stylesheet', href='css/helper-styles.css')
-    link(rel='stylesheet', href='css/component-styles.css')
-    link(rel='stylesheet', href='css/layout-styles.css')
+    <%if (includeScssBase) { %>link(rel='stylesheet', href='css/base-styles.css')<% } %>
+    <%if (includeScssHelper) { %>link(rel='stylesheet', href='css/helper-styles.css')<% } %>
+    <%if (includeScssComponent) { %>link(rel='stylesheet', href='css/component-styles.css')<% } %>
+    <%if (includeScssLayout) { %>link(rel='stylesheet', href='css/layout-styles.css')<% } %>
+    <%if (includeScssPrint) { %>link(rel='stylesheet', href='css/print-styles.css')<% } %>
 
   body
     .container.hor-p5
@@ -34,10 +35,10 @@ html.no-js(lang='nl-BE')
           li #[strong Gulp] -- As a build tool, Jacket uses #[a(target="_blank", href="http://gulpjs.com/") Gulp].
           li #[strong Sass] -- #[a(target="_blank", href="http://bourbon.io/") Bourbon] & #[a(target="_blank", href="http://neat.bourbon.io/") Neat], #[a(target="_blank", href="https://html5boilerplate.com/") h5bp normalize], #[a(target="_blank", href="https://twitter.com/autoprefixer") autoprefixer] and more.
           li #[strong Smacss and BEVM] -- Structure is #[a(target="_blank", href="http://smacss.com/") Smacss] based and #[a(target="_blank", href="https://viget.com/extend/bem-sass-modifiers") BEVM] is encouraged.
-          li #[strong Scss linting] -- Scss linting lets you #[a(target="_blank", href="https://github.com/brigade/scss-lint") lint] your scss code.
-          li #[strong BrowserSync] -- For crossdevice testing Jacket uses #[a(target="_blank", href="https://www.browsersync.io/") Browsersync].
-          li #[strong Jade] -- Jacket is set up with #[a(target="_blank", href="http://jade-lang.com/") Jade] as templating language.
-          li #[strong Sassdoc] -- Scss Mixins, functions and more are documented with #[a(target="_blank", href="http://sassdoc.com/") Sassdoc].
+          <%if (scssLint) { %>li #[strong Scss linting] -- Scss linting lets you #[a(target="_blank", href="https://github.com/brigade/scss-lint") lint] your scss code.<% } %>
+          <%if (browserSync) { %>li #[strong BrowserSync] -- For crossdevice testing Jacket uses #[a(target="_blank", href="https://www.browsersync.io/") Browsersync].<% } %>
+          <%if (jade) { %>li #[strong Jade] -- Jacket is set up with #[a(target="_blank", href="http://jade-lang.com/") Jade] as templating language.<% } %>
+          <%if (sassDoc) { %>li #[strong Sassdoc] -- Scss Mixins, functions and more are documented with #[a(target="_blank", href="http://sassdoc.com/") Sassdoc].<% } %>
 
 
         h3 What #[span(style="color: #d27020") Gulp tasks] can be run?
@@ -55,22 +56,30 @@ html.no-js(lang='nl-BE')
             The Sass task compiles your #[strong scss] to #[strong css]. <br>
             This task can do: Globbing, Autoprefixing, Sourcemaps, it includes a jsonImporter and sends a terminal notification when compilation fails.
 
+          <%if (scssLint) { %>
           h4.-mb0 #[small gulp] scss-lint
           p.-mt1.
             Based on the .scss-lint.yml the Scss-lint task will check if all the scss code you wrote respects the codig standards.
+          <% } %>
 
+          <%if (jade) { %>
           h4.-mb0 #[small gulp] jade
           p.-mt1.
             The Jade task wil compile all the Jade templates to html files in the dist folder.
+          <% } %>
 
+          <%if (browserSync) { %>
           h4.-mb0 #[small gulp] browser-sync
           p.-mt1.
             The Browser sync task will serve this index.html file at localhost:3000/
             and it will watch the scss and jade files and refresh all the devices that are hooked up when these files change.
+          <% } %>
 
+          <%if (sassDoc) { %>
           h4.-mb0 #[small gulp] sassdoc
           p.-mt1.
             This task can generate all the scss documentation used in Jacket.
+          <% } %>
 
           h4.-mb0 #[small gulp] watch
           p.-mt1.
@@ -80,9 +89,10 @@ html.no-js(lang='nl-BE')
           p.-mt1.
             The default tasks executes a sequence of tasks, see the #[strong gulpfile.js].
 
-
+        <%if (sassDoc) { %>
         h3 Sassdoc?
         p You can find the doc #[a(target="_blank", href="sassdoc/index.html") here]
+        <% } %>
 
         footer(style="margin-top: 70px;")
           p(style="text-align: center; color: #808080; font-size: 0.8rem").
