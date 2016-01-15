@@ -67,7 +67,8 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
         require("node-bourbon").includePaths,
         require("node-neat").includePaths[1],
         require("node-normalize-scss").includePaths,
-        config.path.bower + config.path.fontAwesome
+        "<%= dest %>/" + config.path.bower + config.path.fontAwesome,
+        "<%= dest %>"
       ],
       importer: jsonImporter,
       outputStyle: config.sass.style
