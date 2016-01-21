@@ -1,70 +1,94 @@
 // BREAKPOINTS
-@import "../../../../breakpoints.json";
+@import "breakpoints.json";
 @import "neat-helpers";
 
 @each $key, $val in $breakpoints {
   $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width), map-get($val, "cols"))))));
 }
 
+<%if (sassDoc) { %>
 /// Neat Setting to disable warnings
 //// @group Neat Settings
 //// @type Boolean
+<% } %>
 $disable-warnings: false;
 
+<%if (sassDoc) { %>
 /// Sets the total number of columns in the grid.
 /// Its value can be overridden inside a media query using the media() mixin.
 //// @group Neat Settings
 //// @type Value
+<% } %>
 $grid-columns: 12;
 
+<%if (sassDoc) { %>
 /// Sets the relative width of a single grid column.
 /// The unit used should be the same one used to define $gutter.
 //// @group Neat Settings
 //// @type Function
+<% } %>
 $column: modular-scale(3, 1em, $golden);
 
+<%if (sassDoc) { %>
 /// Sets the relative width of a single grid gutter.
 /// The unit used should be the same one used to define $column.
 //// @group Neat Settings
 //// @type Function
+<% } %>
 $gutter: modular-scale(1, .5em, $golden);
 
+<%if (sassDoc) { %>
 /// Sets the max-width property of the element that includes outer-container()
 //// @group Neat Settings
 //// @type Value
-$max-width: em(1170);
+<% } %>
+$max-width: em(<%= siteWidth %>);
 
+<%if (sassDoc) { %>
 /// When set to true, it sets the box-sizing property of all elements to border-box
 //// @group Neat Settings
 //// @type Boolean
+<% } %>
 $border-box-sizing: false;
 
+<%if (sassDoc) { %>
 /// Sets the default media feature that media() and new-breakpoint() revert to when only a breakpoint value is passed
 //// @group Neat Settings
 //// @type Value
+<% } %>
 $default-feature: min-width;
 
+<%if (sassDoc) { %>
 /// Sets the default layout direction of the grid. Can be LTR or RTL.
 //// @group Neat Settings
 //// @type Value
+<% } %>
 $default-layout-direction: LTR;
 
+<%if (sassDoc) { %>
 /// Displays the visual grid when set to true
 //// @group Neat Settings
 //// @type Boolean
-$visual-grid: false;
+<% } %>
+$visual-grid: <%= drawGrid %>;
 
+<%if (sassDoc) { %>
 /// Sets the visual grid color
 //// @group Neat Settings
 //// @type value
+<% } %>
 $visual-grid-color: map-get($colors, grid);
 
+<%if (sassDoc) { %>
 /// Sets the z-index property of the visual grid. Can be back (behind content) or front (in front of content).
 //// @group Neat Settings
 //// @type value
+<% } %>
 $visual-grid-index: front;
 
+<%if (sassDoc) { %>
 /// Sets the opacity property of the visual grid
 //// @group Neat Settings
 //// @type value
+<% } %>
 $visual-grid-opacity: .1;

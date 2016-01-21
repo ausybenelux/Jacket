@@ -1,32 +1,34 @@
 {
-  "name": "jacket",
-  "version": "1.0.8",
-  "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures.",
+  "name": "<%= appName %>",
+  "version": "1.0.1",
+  "description": "<%= appDescr %>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Crosscheck/Jacket.git"
-  },
   "keywords": [
     "Gulp",
-    "Scss",
-    "Browsersync",
-    "Scss-lint",
-    "Sass-doc"
+    "Scss"<%if (browserSync) { %>,
+    "Browsersync"<% } %><%if (scssLint) { %>,
+    "Scss-lint"<% } %><%if (sassDoc) { %>,
+    "Sass-doc"<% } %>
   ],
   "devDependencies": {
+    <%if (browserSync) { %>
     "browser-sync": "^2.9.6",
+    <% } %>
     "chalk": "^1.1.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-help": "^1.6.1",
+    <%if (jade) { %>
     "gulp-jade": "^1.1.0",
+    <% } %>
     "gulp-minify-css": "^1.2.2",
     "gulp-sass": "^2.0.4",
     "gulp-sass-glob": "0.0.2",
+    <%if (scssLint) { %>
     "gulp-scss-lint": "^0.3.0",
+    <% } %>
     "gulp-sequence": "^0.4.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.7",
@@ -34,17 +36,15 @@
     "node-neat": "^1.7.2",
     "node-normalize-scss": "^1.0.3",
     "node-sass-json-importer": "^1.0.2",
+    <%if (sassDoc) { %>
     "sassdoc": "^2.1.15",
+    <% } %>
     "terminal-notifier": "^0.1.2"
   },
   "author": "One Agency",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Crosscheck/jacket/issues"
-  },
   "engines": {
     "node": ">=5.0.0",
     "npm": ">=2.0.0"
-  },
-  "homepage": "https://github.com/Crosscheck/jacket#readme"
+  }
 }

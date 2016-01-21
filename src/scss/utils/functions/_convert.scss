@@ -1,3 +1,4 @@
+<%if (sassDoc) { %>
 // Convert any CSS <length> or <percentage> value to any another.
 //
 // @param $length
@@ -15,6 +16,7 @@
 //   For converting to relative units, the absolute length in px to which the
 //   output value will refer. Defaults to the same as $from-context, since it is
 //   rarely needed.
+<% } %>
 @function convert-length($length, $to-unit, $from-context: $base-font-size, $to-context: $from-context) {
   $from-unit: unit($length);
 
@@ -76,8 +78,9 @@
   @return $output-length;
 }
 
-
+<%if (sassDoc) { %>
 // @private Get the px/rem versions of a value.
+<% } %>
 @function rem-fallback-values($value) {
   $_return: (
     px: $value,
@@ -100,7 +103,9 @@
   @return $_return;
 }
 
+<%if (sassDoc) { %>
 // @private Get the px/rem versions of a list (or nested lists).
+<% } %>
 @function list-convert-rems($value) {
   $_empty: (
     px: (),
@@ -126,7 +131,7 @@
   @return $_return;
 }
 
-
+<%if (sassDoc) { %>
 // Output a given style rule containing rem values along with an (optional)
 // fallback rule for older browsers (with rem values converted to px).
 //
@@ -139,6 +144,7 @@
 // @param $use-px-fallback
 //   [ true | false ]
 //
+<% } %>
 @mixin rem($property, $values, $use-px-fallback: $rem-with-px-fallback) {
 
   // get converted values.

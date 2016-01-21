@@ -1,7 +1,9 @@
+<%if (sassDoc) { %>
 /// Returns the value of one or more specific keys in a map, even if the key is nested
 //// @group Map
 /// @param {variable} $map [none] - map
 /// @param {key} $keys [none] - key(s) from the map
+<% } %>
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
@@ -10,10 +12,12 @@
   @return $map;
 }
 
+<%if (sassDoc) { %>
 /// Sets the value for a specific key in a map, even if the key is nested
 //// @group Map
 /// @param {variable} $map [none] - map
 /// @param {key} $keys [none] - keys from the map
+<% } %>
 @function map-deep-set($map, $keys...) {
   $map-list: ($map);
   $result: null;

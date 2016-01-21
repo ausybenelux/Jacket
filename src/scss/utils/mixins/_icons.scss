@@ -1,6 +1,8 @@
+<%if (sassDoc) { %>
 /// Include a Font Awesome icon
 //// @group Icons
 /// @param {string} $code [none] - code icon ("\000")
+<% } %>
 @mixin fontawesome-icon ($code) {
   @include fontsmoothing();
   color: inherit;
@@ -14,9 +16,11 @@
   transform: translate(0, 0);
 }
 
+<%if (sassDoc) { %>
 /// Include a Fontello icon
 //// @group Icons
 /// @param {string} $code [none] - code icon ("\000")
+<% } %>
 @mixin fontello-icon ($code) {
   @include fontsmoothing();
   color: inherit;

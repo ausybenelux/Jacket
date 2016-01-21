@@ -7,12 +7,14 @@
   "path": {
     "bower": "bower_components/",
     "fontAwesome": "font-awesome/scss",
-    "scss": "./src/scss",
-    "css": "./dist/css",
-    "js": "./dist/js",
-    "jade": "./src/jade",
-    "dist": "./dist",
-    "src": "./src"
+    "scss": "./<%= theme %>src/scss",
+    "css": "./<%= theme %>dist/css",
+    "js": "./<%= theme %>dist/js",
+    <%if (jade) { %>
+    "jade": "./<%= theme %>src/jade",
+    <% } %>
+    "dist": "./<%= theme %>dist",
+    "src": "./<%= theme %>src"
   },
 
   "sass": {
