@@ -49,6 +49,12 @@ $first: 0;
 }
 
 @for $i from $first through $default-itterate-length {
+  .-p#{$i} {
+    padding: rh($default-itterate-ratio * $i);
+  }
+}
+
+@for $i from $first through $default-itterate-length {
   .-hor-p#{$i} {
     padding: 0 rh($default-itterate-ratio * $i);
   }
