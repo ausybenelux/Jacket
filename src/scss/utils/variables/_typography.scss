@@ -26,6 +26,6 @@ $rhythm-unit: "rem";
 /// Set to true to add a px fallback when using rems
 //// @group Typography
 //// @type Boolean
-$rem-with-px-fallback: true;
+$rem-with-px-fallback: false;
 
 $round-to-nearest-half-line: true;
