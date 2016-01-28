@@ -33,7 +33,7 @@
     font-size: $size + px;
   }
 
-  font-size: $size / $base-font-size + $unit;
+  font-size: $size / strip-units($base-font-size) + $unit;
 }
 
 /// Set the line-height with a px fallback
@@ -45,7 +45,7 @@
     line-height: $line-height + px;
   }
 
-  line-height: $line-height / $base-font-size + $unit;
+  line-height: $line-height / strip-units($base-font-size) + $unit;
 }
 
 /// Set the font-size & line-height with a px fallback
