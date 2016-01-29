@@ -24,16 +24,3 @@ $rhythm-unit: "rem";
 $rem-with-px-fallback: false;
 
 $round-to-nearest-half-line: true;
-
-/// Uncomment to override the modular-scale-ratio variable with a bourbon variable or a custom value.
-/// $perfect-fourth is the bourbon default.
-//// @group Typography
-//// @type Variable/value
-// $modular-scale-ratio: $perfect-fourth;
-
-/// Uncomment to override the modular-scale-base variable with a custom value.
-/// The default here is em($em-base), where the default value for $em-base is 16px.
-//// @group Typography
-//// @type Variable/value
-// $modular-scale-base: em($em-base);
-
