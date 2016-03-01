@@ -1,34 +1,40 @@
 {
   "breakpoints": {
     "zero": {
-      "width": "0px",
+      "width": "0",
       "cols": 4,
-      "ratio": 0.6
+      "ratio": 0.6,
+      "padding": 0.4
     },
     "mobile": {
       "width": "480px",
       "cols": 8,
-      "ratio": 0.6
+      "ratio": 0.6,
+      "padding": 0.4
     },
     "tablet": {
       "width": "768px",
       "cols": 8,
-      "ratio": 0.75
+      "ratio": 0.75,
+      "padding": 0.6
     },
     "ninesixty": {
       "width": "960px",
       "cols": 12,
-      "ratio": 1
+      "ratio": 1,
+      "padding": 0.6
     },
     "desktop": {
       "width": "1170px",
       "cols": 12,
-      "ratio": 1
+      "ratio": 1,
+      "padding": 0.6
     },
     "max": {
       "width": "1220px",
       "cols": 12,
-      "ratio": 1
+      "ratio": 1,
+      "padding": 0.6
     }
   }
 }
