@@ -1,16 +1,37 @@
 @for $i from 1 through $grid-columns {
   .w#{$i} {
     @include span-columns($i);
+
+    @each $bp, $val in $breakpoints {
+      &\@#{$bp} {
+        @include media(med($bp)) {
+          @include span-columns($i);
+        }
+      }
+    }
   }
 }
 
-$grids: (1, 2, 3, 4, 5, 6);
-@each $i in $grids {
-  .grid-#{$i} {
+@for $i from 1 through $grid-columns {
+  .shift-right-#{$i} {
+    @include shift($i);
+
     @each $bp, $val in $breakpoints {
-      &.#{$bp} {
+      &\@#{$bp} {
         @include media(med($bp)) {
-          @include grid($i);
+          @include shift($i);
+        }
+      }
+    }
+  }
+
+  .shift-left-#{$i} {
+    @include shift(-($i));
+
+    @each $bp, $val in $breakpoints {
+      &\@#{$bp} {
+        @include media(med($bp)) {
+          @include shift(-($i));
         }
       }
     }
@@ -19,40 +40,62 @@ $grids: (1, 2, 3, 4, 5, 6);
 
 .latest {
   @include omega(auto);
-}
+  float: right;
 
-.container {
-  @include outer-container();
-  padding: 0 rh(.4);
-}
-
-.tablet-container {
-  @include media(med(tablet)) {
-    @include outer-container();
-    padding: 0 rh(1);
+  @each $bp, $val in $breakpoints {
+    &\@#{$bp} {
+      @include media(med($bp)) {
+        @include omega(auto);
+        float: right;
+      }
+    }
   }
 }
 
-.desktop-container {
-  @include media(med(desktop)) {
-    @include outer-container();
-    padding: 0 rh(1);
-  }
-}
+$grids: (1, 2, 3, 4, 5, 6);
+@each $i in $grids {
+  .grid-#{$i} {
+    @include grid($i);
 
-.max-container {
-  @include clearfix;
+    @each $bp, $val in $breakpoints {
+      &\@#{$bp} {
+        @include media(med($bp)) {
+          @include grid($i);
+        }
+      }
+    }
 
-  @include media(med(max)) {
-    @include outer-container();
-    padding: 0 rh(1);
+    $index: 0;
+    $length: length($breakpoints);
+    $keys: map-keys($breakpoints);
+
+    @each $bp, $val in $breakpoints {
+      @if($length > $index + 1) {
+        $index: $index + 1;
+        $plus: $index + 1;
+        $bp: nth($keys, $index);
+
+        @for $k from $plus through $length {
+          $bpn: nth($keys, $k);
+
+          &\@#{$bp}2#{$bpn} {
+            @include media(medi($bp, 1) medi($bp, 2) max-width (medi($bpn, 2) - 1)) {
+              @include grid($i);
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 @for $i from 1 through $grid-columns {
   .center-col-#{$i} {
+    @include span-columns($i of $grid-columns);
+    @include shift(($grid-columns - $i) / 2);
+
     @each $bp, $val in $breakpoints {
-      &.#{$bp} {
+      &\@#{$bp} {
         @include media(med($bp)) {
           @include span-columns($i of $grid-columns);
           @include shift(($grid-columns - $i) / 2);
@@ -60,4 +103,33 @@ $grids: (1, 2, 3, 4, 5, 6);
       }
     }
   }
+}
+
+.container {
+  @include padded-container(rh(.4));
+
+  @each $bp, $val in $breakpoints {
+    &\@#{$bp} {
+      @include media(med($bp)) {
+        @include padded-container(rh(mg($val, "padding")));
+      }
+    }
+  }
+}
+
+.row {
+  @include row();
+}
+
+.row-table {
+  @include row();
+  @include display-context(table);
+}
+
+.reset-display {
+  @include reset-display;
+}
+
+.fullwidth {
+  @include fill-parent();
 }

@@ -5,7 +5,6 @@
 @each $key, $val in $breakpoints {
   $breakpoints: map-merge($breakpoints, ($key: map-merge($val, (media: new-breakpoint(map-get($val, width), map-get($val, "cols"))))));
 }
-
 /// Neat Setting to disable warnings
 //// @group Neat Settings
 //// @type Boolean

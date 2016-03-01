@@ -11,8 +11,8 @@
     @include span-columns($grid-columns / $i);
     @include omega(#{$i}n);
 
-    &:nth-child(#{$i}n+1) {
-      clear: both;
+    &:nth-child(#{$i}n + 1) {
+      clear: left
     }
   }
 }
@@ -23,4 +23,17 @@
 @mixin padded-container($padding: rh(1)) {
   @include outer-container();
   padding: 0 $padding;
+}
+
+
+@mixin grid-undo($i, $gutters: false) {
+  > * {
+    float: left;
+    margin-right: 0;
+    width: auto;
+
+    &:nth-child(#{$i}n) {
+      clear: none;
+    }
+  }
 }

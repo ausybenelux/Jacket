@@ -47,3 +47,11 @@
 @function rh($value) {
   @return rhythm($value);
 }
+
+/// Shortcut for the map-deep-get function for all breakpoints with the key "media"
+//// @group Shortcuts
+/// @param {value} $breakpoint [none] - breakpoint
+/// @param {map} $breakpoints [breakpoints] - map for breakpoints
+@function medi($breakpoint, $i, $breakpoints: $breakpoints) {
+  @return nth(mdg($breakpoints, $breakpoint, "media"), $i);
+}
