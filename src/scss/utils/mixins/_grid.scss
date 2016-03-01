@@ -24,16 +24,3 @@
   @include outer-container();
   padding: 0 $padding;
 }
-
-
-@mixin grid-undo($i, $gutters: false) {
-  > * {
-    float: left;
-    margin-right: 0;
-    width: auto;
-
-    &:nth-child(#{$i}n) {
-      clear: none;
-    }
-  }
-}
