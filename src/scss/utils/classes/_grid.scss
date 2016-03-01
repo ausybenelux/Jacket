@@ -126,9 +126,6 @@ $grids: (1, 2, 3, 4, 5, 6);
   @include display-context(table);
 }
 
-.reset-display {
-  @include reset-display;
-}
 
 .fullwidth {
   @include fill-parent();
