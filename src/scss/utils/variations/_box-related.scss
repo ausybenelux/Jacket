@@ -4,70 +4,108 @@ $first: 0;
   .-ml#{$i} {
     margin-left: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-mt#{$i} {
     margin-top: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-mr#{$i} {
     margin-right: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-mb#{$i} {
     margin-bottom: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-pl#{$i} {
     padding-left: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-pt#{$i} {
     padding-top: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-pr#{$i} {
     padding-right: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-pb#{$i} {
     padding-bottom: rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
+  .-p#{$i} {
+    padding: rh($default-itterate-ratio * $i);
+  }
+
   .-hor-p#{$i} {
     padding: 0 rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-ver-p#{$i} {
     padding: rh($default-itterate-ratio * $i) 0;
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-hor-m#{$i} {
     margin: 0 rh($default-itterate-ratio * $i);
   }
-}
 
-@for $i from $first through $default-itterate-length {
   .-ver-m#{$i} {
     margin: rh($default-itterate-ratio * $i) 0;
   }
+}
+
+.-p-gut {
+  padding: $gutter;
+}
+
+.-pt-gut {
+  padding-top: $gutter;
+}
+
+.-pr-gut {
+  padding-right: $gutter;
+}
+
+.-pb-gut {
+  padding-bottom: $gutter;
+}
+
+.-pl-gut {
+  padding-left: $gutter;
+}
+
+.-m-gut {
+  margin: $gutter;
+}
+
+.-mt-gut {
+  margin-top: $gutter;
+}
+
+.-mr-gut {
+  margin-right: $gutter;
+}
+
+.-mb-gut {
+  margin-bottom: $gutter;
+}
+
+.-ml-gut {
+  margin-left: $gutter;
+}
+
+.-hor-p-gut {
+  padding: 0 $gutter;
+}
+
+.-ver-p-gut {
+  padding: $gutter 0;
+}
+
+.-hor-m-gut {
+  margin: 0 $gutter;
+}
+
+.-ver-m-gut {
+  margin: $gutter 0;
 }
