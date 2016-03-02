@@ -11,8 +11,8 @@
     @include span-columns($grid-columns / $i);
     @include omega(#{$i}n);
 
-    &:nth-child(#{$i}n+1) {
-      clear: both;
+    &:nth-child(#{$i}n + 1) {
+      clear: left
     }
   }
 }
