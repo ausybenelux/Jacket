@@ -12,7 +12,7 @@
     @include omega(#{$i}n);
 
     &:nth-child(#{$i}n + 1) {
-      clear: left
+      clear: left;
     }
   }
 }
