@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="nl-BE" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Jacket</title>
+    <meta name="description" content="A starterkit with a sane default setup, a good starting structure and powerfull front-end tools.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FAVICONS-->
+    <!-- STYLES-->
+    <link rel="stylesheet" href="css/base-styles.css">
+    <link rel="stylesheet" href="css/helper-styles.css">
+    <link rel="stylesheet" href="css/component-styles.css">
+    <link rel="stylesheet" href="css/layout-styles.css">
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+    <link rel="stylesheet" href="bower_components/prism/themes/prism-coy.css">
+    <style type="text/css">
+      .preview {
+        background-color: #FF9E4F;
+        padding: 1.2rem;
+        margin: 1rem 0;
+      }
+      
+      .preview > * {
+        background-color: #F2872F;
+        padding: .8rem;
+        color: #724016;
+        font-weight: bold;
+      
+        box-shadow: inset 0 1px 0 0 #FF9E4F;
+      }
+      
+      .rows .preview {
+        margin: 0;
+        padding-bottom: 0;
+      }
+      
+      .rows .preview:last-child {
+        padding-bottom: 1.2rem;
+      }
+      
+      blockquote {
+        margin-left: 0;
+        padding: 10px;
+        padding-left: 15px;
+        border-left: 3px solid #FFF;
+        font-size: 1rem;
+        line-height: 1.3rem;
+      }
+      
+      blockquote.orange {
+        border-left: 3px solid #F2872F;
+        color: #F2872F;
+        font-weight: bold;
+      }
+      
+      blockquote.blue {
+        border-left: 3px solid #008DA5;
+        color: #008DA5;
+        font-weight: bold;
+      }
+      
+      hr {
+        border: 0;
+        border-bottom: 1px solid #a0aab6;
+      }
+      
+      pre[class*="language-"]::before,
+      pre[class*="language-"]::after {
+        display: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div style="background-color: #2c3137;">
+      <div class="container -p5">
+        <div class="center-col-6@tablet">
+          <header>
+            <h1 style="line-height: 2.5rem; margin: 0; color: #f2872f">This is how the grid system works.</h1>
+            <blockquote style="margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #FFF; font-size: 1rem; line-height: 1.3rem" class="-c-white -mb2">The grid system is based on <strong style="color: #f2872f">Neat</strong> from the Bourbon library, <br> you can find additional information on their <a target="_blank" href="http://neat.bourbon.io" style="color: #f2872f">website</a>.
+              
+            </blockquote>
+          </header>
+        </div>
+      </div>
+    </div>
+    <div class="container@tablet">
+      <div class="center-col-6@tablet">
+        <div class="item -mt7">
+          <h2>The use of .w1-{grid-columns} <small>(.w12 default)</small></h2>
+          <p class="-mt1">
+            You can use the <strong>.w1-12</strong> classes in the html to make separate columns. <br>
+            These classes are mainly used to create <strong>asymetric</strong> grids.<br>
+          </p>
+          <blockquote class="orange -mb5"><i class="fa fa-exclamation-triangle"> </i> You should not use this if you want to create a SYMETRIC grid.</blockquote>
+          <div class="preview clearfix">
+            <div class="w8">.w8</div>
+            <div class="w4">.w4</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w8&quot;&gt;.w8&lt;/div&gt;
+  &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          <div class="preview clearfix">
+            <div class="w3">.w3</div>
+            <div class="w4">.w4</div>
+            <div class="w5">.w5</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w3&quot;&gt;.w3&lt;/div&gt;
+  &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+  &lt;div class=&quot;w5&quot;&gt;.w5&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          <hr class="-ver-m7">
+          <p class="-mt1">
+            This can be powered by <strong>@breakpoint</strong> syntax. For example <strong>@tablet</strong> or <strong>@mobile</strong> <br>
+            When this suffix is used, the class will only be active <strong>from that breakpoint and up</strong>.
+            
+          </p>
+          <blockquote class="orange -mb5"><i class="fa fa-exclamation-triangle"> </i> Remember, the number of columns can be different per breakpoint, that is the way bourbon works, take a look at breakpoints.json in this case, the number is 8 for tablet.</blockquote>
+          <div class="preview clearfix">
+            <div class="w2@tablet">.w2@tablet</div>
+            <div class="w2@tablet">.w2@tablet</div>
+            <div class="w4@tablet">.w4@tablet</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w2@tablet&quot;&gt;.w2@tablet&lt;/div&gt;
+  &lt;div class=&quot;w2@tablet&quot;&gt;.w2@tablet&lt;/div&gt;
+  &lt;div class=&quot;w4@tablet&quot;&gt;.w4@tablet&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+          <p class="-mt1">
+            This can even be more powerfull when <strong>combining</strong> breakpoints<br>
+            
+          </p>
+          <div class="preview clearfix">
+            <div class="w2@tablet w3@desktop"><small>.w2@tablet.w3@desktop</small></div>
+            <div class="w2@tablet w5@desktop"><small>.w2@tablet.w5@desktop</small></div>
+            <div class="w4@tablet w4@desktop"><small>.w4@tablet.w4@desktop</small></div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w2@tablet w3@desktop&quot;&gt;&lt;small&gt;.w2@tablet.w3@desktop&lt;/small&gt;&lt;/div&gt;
+  &lt;div class=&quot;w2@tablet w5@desktop&quot;&gt;&lt;small&gt;.w2@tablet.w5@desktop&lt;/small&gt;&lt;/div&gt;
+  &lt;div class=&quot;w4@tablet w4@desktop&quot;&gt;&lt;small&gt;.w4@tablet.w4@desktop&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <hr class="-ver-m7">
+        <div class="item">
+          <h2>The use of .grid-1 to .grid-6</h2>
+          <p class="-mt1">
+            You can use the <strong>.grid-1 to grid-6</strong> classes in the html to make symetric rasters.<br>
+            The number is based on the amount of columns, so <strong>grid-6</strong> will create <strong>6 columns</strong>, <strong>grid-3</strong> will create <strong>3 columns</strong>.
+            
+          </p>
+          <blockquote class="blue -mb5"><i class="fa fa-info-circle"> </i> When you use .grid-2 for example, you must have 2 child divs present in the wrapper.</blockquote>
+          <div class="grid-2 preview">
+            <div>Content here</div>
+            <div>Content here</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;grid-2&quot;&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <div class="grid-6 preview">
+            <div class="-mb-gut">teaser</div>
+            <div class="-mb-gut">teaser</div>
+            <div class="-mb-gut">teaser</div>
+            <div class="-mb-gut">teaser</div>
+            <div class="-mb-gut">teaser</div>
+            <div class="-mb-gut">teaser</div>
+            <div>teaser</div>
+            <div>teaser</div>
+            <div>teaser</div>
+            <div>teaser</div>
+            <div>teaser</div>
+            <div>teaser</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;grid-6&quot;&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+  &lt;div&gt;teaser&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <blockquote class="blue -mb5"><i class="fa fa-info-circle"> </i> You can combine grids at your will, the syntax is @#{bp-one}2#{bp-two}. Very handy If your grid, changes from 2 to 4 over a breakpoint.</blockquote>
+          <div class="grid-2@zero2mobile grid-4@mobile preview">
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;grid-2@zero2mobile grid-4@mobile&quot;&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <div class="grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop preview">
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+            <div>Content here</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop&quot;&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+  &lt;div&gt;Content here&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <hr class="-ver-m7">
+        <div class="item">
+          <h2>The use of .latest</h2>
+          <p class="-mt1">
+            You can use the <strong>.latest</strong> class to make the last item float right.<br>
+            
+          </p>
+          <blockquote class="blue -mb5"><i class="fa fa-info-circle"> </i> This can also be combinned with the @breakpoint suffixes.</blockquote>
+          <div class="preview clearfix">
+            <div class="w3">.w3</div>
+            <div class="w4 latest">.w4.latest</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w3&quot;&gt;.w3&lt;/div&gt;
+  &lt;div class=&quot;w4 latest&quot;&gt;.w4.latest&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <div class="preview clearfix">
+            <div class="w3@tablet">.w3@tablet</div>
+            <div class="w4@tablet latest@mobile">.w4@tablet.latest@mobile</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;w3@tablet&quot;&gt;.w3@tablet&lt;/div&gt;
+  &lt;div class=&quot;w4@tablet latest@mobile&quot;&gt;.w4@tablet.latest@mobile&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <hr class="-ver-m7">
+        <div class="item">
+          <h2>The use of .row</h2>
+          <p class="-mt1">
+            You can use the <strong>.row</strong> class to make rows inside the layout.<br>
+            
+          </p>
+          <blockquote class="orange -mb5"><i class="fa fa-exclamation-triangle"> </i> The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.</blockquote>
+          <div class="rows -mb4">
+            <div class="row preview">
+              <div class="w4">.w4</div>
+              <div class="w4">.w4</div>
+              <div class="w4">.w4</div>
+            </div>
+            <div class="row preview">
+              <div class="w4">.w4</div>
+              <div class="w4">.w4</div>
+              <div class="w4">.w4</div>
+            </div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;rows&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+    &lt;div class=&quot;w4&quot;&gt;.w4&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <hr class="-ver-m7">
+        <div class="item">
+          <h2>The use of .center-col-x</h2>
+          <p class="-mt1">
+            You can use the <strong>.center-col-x</strong> class to center an item on the grid.<br>
+            
+          </p>
+          <blockquote class="orange -mb5"><i class="fa fa-exclamation-triangle"> </i> The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.</blockquote>
+          <div class="cf preview">
+            <div class="center-col-6">.center-col-6</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;cf&quot;&gt;
+  &lt;div class=&quot;center-col-6&quot;&gt;.center-col-6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <blockquote class="blue -mb5"><i class="fa fa-info-circle"> </i> This can also be combinned with the @breakpoint suffixes.</blockquote>
+          <div class="cf preview">
+            <div class="center-col-5@tablet center-col-10@desktop ">.center-col-5@tablet.center-col-10@desktop</div>
+          </div>
+          <pre><code class="language-html">&lt;div class=&quot;cf&quot;&gt;
+  &lt;div class=&quot;center-col-5@tablet center-col-10@desktop&quot;&gt;
+    .center-col-5@tablet.center-col-10@desktop
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <footer style="margin-top: 70px;">
+          <p style="text-align: center; color: #808080; font-size: 0.8rem">Jacket &bull; License MIT &bull; &copy; One Agency 2016 &bull; Repository on <a target="_blank" href="https://github.com/Crosscheck/Jacket">Github</a>
+            
+          </p>
+        </footer>
+      </div>
+    </div>
+    <script src="bower_components/prism/prism.js"></script>
+  </body>
+</html>
