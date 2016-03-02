@@ -3,7 +3,7 @@ $displays: (none inline block list-item inline-list-item inline-block inline-tab
 @each $display in $displays {
   $letters: str-every-first-letter($display);
 
-  .-d-#{$letters} {
+  .-display-#{$letters} {
     display: $display;
 
     @each $bp, $val in $breakpoints {
