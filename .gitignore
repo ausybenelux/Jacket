@@ -5,7 +5,7 @@ node_modules
 bower_components
 
 # Ignore generated css maps.
-*.css.maps
+*.css.map
 
 # Ignore css files.
 *.css
