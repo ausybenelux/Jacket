@@ -74,274 +74,300 @@ html.no-js(lang='nl-BE')
         display: none;
       }
 
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .centerblock {
+        height: 170px;
+        text-align: center;
+      }
+
+      .centerblock:before {
+        content: '';
+      /*   content: '';
+        margin-left: -0.25em; */
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+       }
+
+      .centerblock img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 350px;
+       }
+
   body
-    div(style="background-color: #2c3137;")
-      .container.-p5
-        div(class="center-col-6@tablet")
-          header
-            h1(style="line-height: 2.5rem; margin: 0; color: #f2872f") This is how the grid system works.
+    div(style="background-color: #2c3137;").-p5
+      header(class="cf")
+        div(style="text-align: left;" class="w3@tablet w4@desktop centerblock")
+          img(style="width: 350px;" src="img/logo/Jacket-large.png")
 
-            blockquote.-c-white.-mb2(style="margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #FFF; font-size: 1rem; line-height: 1.3rem").
-              The grid system is based on #[strong(style="color: #f2872f") Neat] from the Bourbon library, <br> you can find additional information on their #[a(target="_blank", href="http://neat.bourbon.io", style="color: #f2872f") website].
+        div(class="w5@tablet w8@desktop")
+          h1(style="line-height: 2.5rem; margin: 0; color: #f2872f") This is how the grid system works.
 
-    div(class="container@tablet")
-      div(class="center-col-6@tablet")
-        .item.-mt7
-          h2 The use of .w1-{grid-columns} #[small (.w12 default)]
-          p.-mt1.
-            You can use the <strong>.w1-12</strong> classes in the html to make separate columns. <br>
-            These classes are mainly used to create <strong>asymetric</strong> grids.<br>
-          blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] You should not use this if you want to create a SYMETRIC grid.
+          blockquote.-c-white.-mb2(style="margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #FFF; font-size: 1rem; line-height: 1.3rem").
+            The grid system is based on #[strong(style="color: #f2872f") Neat] from the Bourbon library, <br> you can find additional information on their #[a(target="_blank", href="http://neat.bourbon.io", style="color: #f2872f") website].
 
-          .preview.clearfix
-            .w8 .w8
+    .-hor-p5
+      .item.-mt7
+        h2 The use of .w1-{grid-columns} #[small (.w12 default)]
+        p.-mt1.
+          You can use the <strong>.w1-12</strong> classes in the html to make separate columns. <br>
+          These classes are mainly used to create <strong>asymetric</strong> grids.<br>
+        blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] You should not use this if you want to create a SYMETRIC grid.
+
+        .preview.clearfix
+          .w8 .w8
+          .w4 .w4
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w8">.w8</div>\n'
+            ='  <div class="w4">.w4</div>\n'
+            ='</div>\n'
+
+        .preview.clearfix
+          .w3 .w3
+          .w4 .w4
+          .w5 .w5
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w3">.w3</div>\n'
+            ='  <div class="w4">.w4</div>\n'
+            ='  <div class="w5">.w5</div>\n'
+            ='</div>\n'
+
+        hr.-ver-m7
+
+        p.-mt1.
+          This can be powered by <strong>@breakpoint</strong> syntax. For example <strong>@tablet</strong> or <strong>@mobile</strong> <br>
+          When this suffix is used, the class will only be active <strong>from that breakpoint and up</strong>.
+
+        blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] Remember, the number of columns can be different per breakpoint, that is the way bourbon works, take a look at breakpoints.json in this case, the number is 8 for tablet.
+
+        .preview.clearfix
+          div(class="w2@tablet") .w2@tablet
+          div(class="w2@tablet") .w2@tablet
+          div(class="w4@tablet") .w4@tablet
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w2@tablet">.w2@tablet</div>\n'
+            ='  <div class="w2@tablet">.w2@tablet</div>\n'
+            ='  <div class="w4@tablet">.w4@tablet</div>\n'
+            ='</div>\n'
+
+        p.-mt1.
+          This can even be more powerfull when <strong>combining</strong> breakpoints<br>
+
+        .preview.clearfix
+          div(class="w2@tablet w3@desktop") <small>.w2@tablet.w3@desktop</small>
+          div(class="w2@tablet w5@desktop") <small>.w2@tablet.w5@desktop</small>
+          div(class="w4@tablet w4@desktop") <small>.w4@tablet.w4@desktop</small>
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w2@tablet w3@desktop"><small>.w2@tablet.w3@desktop</small></div>\n'
+            ='  <div class="w2@tablet w5@desktop"><small>.w2@tablet.w5@desktop</small></div>\n'
+            ='  <div class="w4@tablet w4@desktop"><small>.w4@tablet.w4@desktop</small></div>\n'
+            ='</div>\n'
+
+      hr.-ver-m7
+
+      .item
+        h2 The use of .grid-1 to .grid-6
+        p.-mt1.
+          You can use the <strong>.grid-1 to grid-6</strong> classes in the html to make symetric rasters.<br>
+          The number is based on the amount of columns, so <strong>grid-6</strong> will create <strong>6 columns</strong>, <strong>grid-3</strong> will create <strong>3 columns</strong>.
+
+        blockquote.blue.-mb5 #[i.fa.fa-info-circle ] When you use .grid-2 for example, you must have 2 child divs present in the wrapper.
+
+        .grid-2.preview
+          div Content here
+          div Content here
+
+        pre
+          code(class="language-html")
+            ='<div class="grid-2">\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='</div>'
+
+        .grid-6.preview
+          div.-mb-gut teaser
+          div.-mb-gut teaser
+          div.-mb-gut teaser
+          div.-mb-gut teaser
+          div.-mb-gut teaser
+          div.-mb-gut teaser
+          div teaser
+          div teaser
+          div teaser
+          div teaser
+          div teaser
+          div teaser
+
+        pre
+          code(class="language-html")
+            ='<div class="grid-6">\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='  <div>teaser</div>\n'
+            ='</div>'
+
+        blockquote.blue.-mb5 #[i.fa.fa-info-circle ] You can combine grids at your will, the syntax is @\#{bp-one}2\#{bp-two}. Very handy If your grid, changes from 2 to 4 over a breakpoint.
+
+        div(class="grid-2@zero2mobile grid-4@mobile").preview
+          div Content here
+          div Content here
+          div Content here
+          div Content here
+
+        pre
+          code(class="language-html")
+            ='<div class="grid-2@zero2mobile grid-4@mobile">\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='</div>'
+
+        div(class="grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop").preview
+          div Content here
+          div Content here
+          div Content here
+          div Content here
+          div Content here
+          div Content here
+
+        pre
+          code(class="language-html")
+            ='<div class="grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop">\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='  <div>Content here</div>\n'
+            ='</div>'
+
+      hr.-ver-m7
+
+      .item
+        h2 The use of .latest
+        p.-mt1.
+          You can use the <strong>.latest</strong> class to make the last item float right.<br>
+
+        blockquote.blue.-mb5 #[i.fa.fa-info-circle ] This can also be combinned with the @breakpoint suffixes.
+
+        .preview.clearfix
+          .w3 .w3
+          .w4.latest .w4.latest
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w3">.w3</div>\n'
+            ='  <div class="w4 latest">.w4.latest</div>\n'
+            ='</div>'
+
+        .preview.clearfix
+          div(class="w3@tablet") .w3@tablet
+          div(class="w4@tablet latest@mobile") .w4@tablet.latest@mobile
+
+        pre
+          code(class="language-html")
+            ='<div class="clearfix">\n'
+            ='  <div class="w3@tablet">.w3@tablet</div>\n'
+            ='  <div class="w4@tablet latest@mobile">.w4@tablet.latest@mobile</div>\n'
+            ='</div>'
+
+      hr.-ver-m7
+
+      .item
+        h2 The use of .row
+        p.-mt1.
+          You can use the <strong>.row</strong> class to make rows inside the layout.<br>
+
+        blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.
+
+        .rows.-mb4
+          .row.preview
+            .w4 .w4
+            .w4 .w4
+            .w4 .w4
+          .row.preview
+            .w4 .w4
+            .w4 .w4
             .w4 .w4
 
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w8">.w8</div>\n'
-              ='  <div class="w4">.w4</div>\n'
-              ='</div>\n'
+        pre
+          code(class="language-html")
+            ='<div class="rows">\n'
+            ='  <div class="row">\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='  </div>\n'
+            ='  <div class="row">\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='    <div class="w4">.w4</div>\n'
+            ='  </div>\n'
+            ='</div>'
 
-          .preview.clearfix
-            .w3 .w3
-            .w4 .w4
-            .w5 .w5
+      hr.-ver-m7
 
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w3">.w3</div>\n'
-              ='  <div class="w4">.w4</div>\n'
-              ='  <div class="w5">.w5</div>\n'
-              ='</div>\n'
+      .item
+        h2 The use of .center-col-x
+        p.-mt1.
+          You can use the <strong>.center-col-x</strong> class to center an item on the grid.<br>
 
-          hr.-ver-m7
+        blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.
 
-          p.-mt1.
-            This can be powered by <strong>@breakpoint</strong> syntax. For example <strong>@tablet</strong> or <strong>@mobile</strong> <br>
-            When this suffix is used, the class will only be active <strong>from that breakpoint and up</strong>.
+        .cf.preview
+          .center-col-6 .center-col-6
 
-          blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] Remember, the number of columns can be different per breakpoint, that is the way bourbon works, take a look at breakpoints.json in this case, the number is 8 for tablet.
+        pre
+          code(class="language-html")
+            ='<div class="cf">\n'
+            ='  <div class="center-col-6">.center-col-6</div>\n'
+            ='</div>'
 
-          .preview.clearfix
-            div(class="w2@tablet") .w2@tablet
-            div(class="w2@tablet") .w2@tablet
-            div(class="w4@tablet") .w4@tablet
+        blockquote.blue.-mb5 #[i.fa.fa-info-circle ] This can also be combinned with the @breakpoint suffixes.
 
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w2@tablet">.w2@tablet</div>\n'
-              ='  <div class="w2@tablet">.w2@tablet</div>\n'
-              ='  <div class="w4@tablet">.w4@tablet</div>\n'
-              ='</div>\n'
+        .cf.preview
+          div(class="center-col-5@tablet center-col-10@desktop ") .center-col-5@tablet.center-col-10@desktop
 
-          p.-mt1.
-            This can even be more powerfull when <strong>combining</strong> breakpoints<br>
-
-          .preview.clearfix
-            div(class="w2@tablet w3@desktop") <small>.w2@tablet.w3@desktop</small>
-            div(class="w2@tablet w5@desktop") <small>.w2@tablet.w5@desktop</small>
-            div(class="w4@tablet w4@desktop") <small>.w4@tablet.w4@desktop</small>
-
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w2@tablet w3@desktop"><small>.w2@tablet.w3@desktop</small></div>\n'
-              ='  <div class="w2@tablet w5@desktop"><small>.w2@tablet.w5@desktop</small></div>\n'
-              ='  <div class="w4@tablet w4@desktop"><small>.w4@tablet.w4@desktop</small></div>\n'
-              ='</div>\n'
-
-        hr.-ver-m7
-
-        .item
-          h2 The use of .grid-1 to .grid-6
-          p.-mt1.
-            You can use the <strong>.grid-1 to grid-6</strong> classes in the html to make symetric rasters.<br>
-            The number is based on the amount of columns, so <strong>grid-6</strong> will create <strong>6 columns</strong>, <strong>grid-3</strong> will create <strong>3 columns</strong>.
-
-          blockquote.blue.-mb5 #[i.fa.fa-info-circle ] When you use .grid-2 for example, you must have 2 child divs present in the wrapper.
-
-          .grid-2.preview
-            div Content here
-            div Content here
-
-          pre
-            code(class="language-html")
-              ='<div class="grid-2">\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='</div>'
-
-          .grid-6.preview
-            div.-mb-gut teaser
-            div.-mb-gut teaser
-            div.-mb-gut teaser
-            div.-mb-gut teaser
-            div.-mb-gut teaser
-            div.-mb-gut teaser
-            div teaser
-            div teaser
-            div teaser
-            div teaser
-            div teaser
-            div teaser
-
-          pre
-            code(class="language-html")
-              ='<div class="grid-6">\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='  <div>teaser</div>\n'
-              ='</div>'
-
-          blockquote.blue.-mb5 #[i.fa.fa-info-circle ] You can combine grids at your will, the syntax is @\#{bp-one}2\#{bp-two}. Very handy If your grid, changes from 2 to 4 over a breakpoint.
-
-          div(class="grid-2@zero2mobile grid-4@mobile").preview
-            div Content here
-            div Content here
-            div Content here
-            div Content here
-
-          pre
-            code(class="language-html")
-              ='<div class="grid-2@zero2mobile grid-4@mobile">\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='</div>'
-
-          div(class="grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop").preview
-            div Content here
-            div Content here
-            div Content here
-            div Content here
-            div Content here
-            div Content here
-
-          pre
-            code(class="language-html")
-              ='<div class="grid-2@zero2mobile grid-3@mobile2desktop grid-6@desktop">\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='  <div>Content here</div>\n'
-              ='</div>'
-
-        hr.-ver-m7
-
-        .item
-          h2 The use of .latest
-          p.-mt1.
-            You can use the <strong>.latest</strong> class to make the last item float right.<br>
-
-          blockquote.blue.-mb5 #[i.fa.fa-info-circle ] This can also be combinned with the @breakpoint suffixes.
-
-          .preview.clearfix
-            .w3 .w3
-            .w4.latest .w4.latest
-
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w3">.w3</div>\n'
-              ='  <div class="w4 latest">.w4.latest</div>\n'
-              ='</div>'
-
-          .preview.clearfix
-            div(class="w3@tablet") .w3@tablet
-            div(class="w4@tablet latest@mobile") .w4@tablet.latest@mobile
-
-          pre
-            code(class="language-html")
-              ='<div class="clearfix">\n'
-              ='  <div class="w3@tablet">.w3@tablet</div>\n'
-              ='  <div class="w4@tablet latest@mobile">.w4@tablet.latest@mobile</div>\n'
-              ='</div>'
-
-        hr.-ver-m7
-
-        .item
-          h2 The use of .row
-          p.-mt1.
-            You can use the <strong>.row</strong> class to make rows inside the layout.<br>
-
-          blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.
-
-          .rows.-mb4
-            .row.preview
-              .w4 .w4
-              .w4 .w4
-              .w4 .w4
-            .row.preview
-              .w4 .w4
-              .w4 .w4
-              .w4 .w4
-
-          pre
-            code(class="language-html")
-              ='<div class="rows">\n'
-              ='  <div class="row">\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='  </div>\n'
-              ='  <div class="row">\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='    <div class="w4">.w4</div>\n'
-              ='  </div>\n'
-              ='</div>'
-
-        hr.-ver-m7
-
-        .item
-          h2 The use of .center-col-x
-          p.-mt1.
-            You can use the <strong>.center-col-x</strong> class to center an item on the grid.<br>
-
-          blockquote.orange.-mb5 #[i.fa.fa-exclamation-triangle ] The use of rows in a grid-x is irrelevant so you do not have to wrap every row. Rows are typically used on the main layout.
-
-          .cf.preview
-            .center-col-6 .center-col-6
-
-          pre
-            code(class="language-html")
-              ='<div class="cf">\n'
-              ='  <div class="center-col-6">.center-col-6</div>\n'
-              ='</div>'
-
-          blockquote.blue.-mb5 #[i.fa.fa-info-circle ] This can also be combinned with the @breakpoint suffixes.
-
-          .cf.preview
-            div(class="center-col-5@tablet center-col-10@desktop ") .center-col-5@tablet.center-col-10@desktop
-
-          pre
-            code(class="language-html")
-              ='<div class="cf">\n'
-              ='  <div class="center-col-5@tablet center-col-10@desktop">\n'
-              ='    .center-col-5@tablet.center-col-10@desktop\n'
-              ='  </div>\n'
-              ='</div>'
+        pre
+          code(class="language-html")
+            ='<div class="cf">\n'
+            ='  <div class="center-col-5@tablet center-col-10@desktop">\n'
+            ='    .center-col-5@tablet.center-col-10@desktop\n'
+            ='  </div>\n'
+            ='</div>'
 
 
-        footer(style="margin-top: 70px;")
-          p(style="text-align: center; color: #808080; font-size: 0.8rem").
-            Jacket &bull; License MIT &bull; &copy; One Agency #{new Date().getFullYear()} &bull; Repository on #[a(target="_blank", href="https://github.com/Crosscheck/Jacket") Github]
+      footer(style="margin-top: 70px;")
+        p(style="text-align: center; color: #808080; font-size: 0.8rem").
+          Jacket &bull; License MIT &bull; &copy; One Agency #{new Date().getFullYear()} &bull; Repository on #[a(target="_blank", href="https://github.com/Crosscheck/Jacket") Github]
 
-    script(src='bower_components/prism/prism.js')
+  script(src='bower_components/prism/prism.js')
 
