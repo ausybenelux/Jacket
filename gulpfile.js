@@ -26,6 +26,10 @@ var sourcemaps = require("gulp-sourcemaps");
 var scsslint = require('gulp-scss-lint');
 var sassdoc = require("sassdoc");
 
+// Favicons
+var realFavicon = require("gulp-real-favicon");
+var fs = require('fs');
+
 // Jade
 var jade = require('gulp-jade');
 
@@ -46,11 +50,12 @@ var errorCallBack = function (error, metadata) {
 };
 
 // -----------------------------------------------------------------------------
-// FAVICONS -- https://github.com/haydenbleasel/favicons
+// FAVICONS -- http://realfavicongenerator.net/
+// NPM -- https://www.npmjs.com/package/gulp-real-favicon
 // -----------------------------------------------------------------------------
 
 gulp.task("favicons", "Generates cross-device favicons from dist/img/logo/favicon.png", function() {
-  return favicons(config.favicons, errorCallBack);
+  realFavicon.generateFavicon(config.favicons);
 });
 
 // -----------------------------------------------------------------------------
