@@ -6,3 +6,6 @@ bower_components
 
 # Ignore generated css maps.
 *.css.map
+
+# Ignore css files.
+*.css
