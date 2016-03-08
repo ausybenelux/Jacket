@@ -1,12 +1,7 @@
-/// Rembase variable
-//// @group Typography
-//// @type Value
-$rembase: 16;
-
 /// Base font size in px
 //// @group Typography
 //// @type Value
-$base-font-size: 15px;
+$base-font-size: 16px;
 
 /// Base line height in px
 //// @group Typography
@@ -26,6 +21,6 @@ $rhythm-unit: "rem";
 /// Set to true to add a px fallback when using rems
 //// @group Typography
 //// @type Boolean
-$rem-with-px-fallback: true;
+$rem-with-px-fallback: false;
 
 $round-to-nearest-half-line: true;

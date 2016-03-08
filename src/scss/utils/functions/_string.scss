@@ -1,0 +1,70 @@
+/// Get first letter of every word splitted by $splitter
+//// @group String
+/// @param {String} $string - string to check
+/// @param {Splitter} $splitter ["-"] - splitter to split the string
+/// @return {String}
+@function str-every-first-letter($string, $splitter: "-") {
+  @if $string == "" {
+    @return false;
+  }
+
+  $string: str-trim($string);
+  $letters: str-slice($string, 1, 1);
+  $i: 1;
+  $length: str-length($string);
+
+  @while $i <= $length {
+    @if str-slice($string, $i, $i) == $splitter {
+      $letters: $letters + str-slice($string, $i + 1, $i + 1);
+    }
+    $i: $i + 1;
+  }
+
+  @return to-string($letters);
+}
+
+/// Remove all trailing and leading whitespaces from `$string`.
+//// @group String
+/// @param {String} $string - string
+/// @return {String}
+@function str-trim($string) {
+  $start: 1;
+  $end: str-length($string);
+
+  @for $i from 1 through str-length($string) {
+    $first: str-slice($string, $i, $i);
+    $last: str-slice($string, -$i, -$i);
+
+    @if $first == " " and $i + 1 == $start + 1 {
+      $start: $i + 1;
+    }
+
+    @if $last == " " and str-length($string) - $i == $end - 1 {
+      $end: str-length($string) - $i;
+    }
+  }
+
+  @return str-slice($string, $start, $end);
+}
+
+/// convert a sass list to a string, by gluing al the items together with a glue parrameter
+//// @group String
+/// @param {list} $list - Sass list to glue together
+/// @param {String} $glue [""] - Glue to use
+/// @param {$boolean} $is-nested [false] - Defines if the list is a nested list or not
+/// @return {String}
+@function to-string($list, $glue: "", $is-nested: false) {
+  $result: null;
+
+  @for $i from 1 through length($list) {
+    $e: nth($list, $i);
+
+    @if type-of($e) == list {
+      $result: $result#{to-string($e, $glue, true)};
+    } @else {
+      $result: if($i != length($list) or $is-nested, $result#{$e}#{$glue}, $result#{$e});
+    }
+  }
+
+  @return $result;
+}

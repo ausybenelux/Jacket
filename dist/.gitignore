@@ -1,8 +1,9 @@
 # Ignore node packages.
 node_modules
 
-# Ignore bower components
+# Ignore bower components.
 bower_components
 
 # Ignore generated css maps.
 *.css.map
+
