@@ -2,9 +2,11 @@
 //// @group Grid
 /// @param {value} $i [none] - number of columns
 /// @param {boolean} $container [true] - add an outer-container or not
-@mixin grid($i, $container: true) {
+@mixin grid($i, $container: false) {
   @if $container {
     @include outer-container();
+  } @else {
+    @include clearfix;
   }
 
   > * {

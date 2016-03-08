@@ -34,85 +34,119 @@ html.no-js(lang='nl-BE')
     link(rel='stylesheet', href='css/component-styles.css')
     link(rel='stylesheet', href='css/layout-styles.css')
 
+    style(type='text/css').
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .centerblock {
+        height: 280px;
+        text-align: center;
+      }
+
+      .centerblock:before {
+        content: '';
+      /*   content: '';
+        margin-left: -0.25em; */
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+       }
+
+      .centerblock img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 350px;
+       }
+
   body
-    div(style="background-color: #fafafa;")
-      .container.-p5
-        div(class="center-col-4@tablet")
-          header
-            h1(style="line-height: 2.5rem; margin: 0;") Hi there, #[small #[span(style="color: #d27020") Awesome Front-end developer.]]
-            p.-mt0 You are using #[strong Jacket]. #[img(style="position: relative; top: 4px;" src="https://img.shields.io/npm/v/jacket.svg?label=version")]
+    div(style="background-color: #fafafa;").-p5
+      header(class="cf ")
+        div(style="text-align: center;" class="w3@tablet w4@desktop centerblock")
+          img(style="width: 350px;" src="img/logo/Jacket-large.png")
 
-            img(src="https://nodei.co/npm/jacket.png?downloads=true")
+        div(class="w5@tablet w8@desktop")
+          h1(style="line-height: 2.5rem; margin: 0;") Hi there, #[small #[span(style="color: #d27020") awesome front-end developer.]]
+          p.-mt0 You are using #[strong Jacket]. #[img(style="position: relative; top: 4px;" src="https://img.shields.io/npm/v/jacket.svg?label=version")]
 
-            blockquote.-mb2(style="margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #000; font-size: 1rem; line-height: 1.3rem").
-              A starterkit with a #[strong sane default setup], #[strong a good starting structure] and #[strong powerfull front-end tools] to back you up.
+          img(src="https://nodei.co/npm/jacket.png?downloads=true")
 
-    .container.-hor-p5
-      div(class="center-col-4@tablet")
-        .-ver-p3
-          h3 What #[span(style="color: #d27020") front-end tools] are included?
-          ul.-mb2(style="line-height: 1.6rem; list-style-type: none;")
-            li #[strong Npm] -- Jacket is an npm package. You can find the package #[a(target="_blank", href="https://www.npmjs.com/package/jacket") here].
-            li #[strong Gulp] -- As a build tool, Jacket uses #[a(target="_blank", href="http://gulpjs.com/") Gulp].
-            li #[strong Sass] -- #[a(target="_blank", href="http://bourbon.io/") Bourbon] & #[a(target="_blank", href="http://neat.bourbon.io/") Neat], #[a(target="_blank", href="https://html5boilerplate.com/") h5bp normalize], #[a(target="_blank", href="https://twitter.com/autoprefixer") autoprefixer] and more.
-            li #[strong Smacss and BEVM] -- Structure is #[a(target="_blank", href="http://smacss.com/") Smacss] based and #[a(target="_blank", href="https://viget.com/extend/bem-sass-modifiers") BEVM] is encouraged.
-            li #[strong Scss linting] -- Scss linting lets you #[a(target="_blank", href="https://github.com/brigade/scss-lint") lint] your scss code.
-            li #[strong BrowserSync] -- For crossdevice testing Jacket uses #[a(target="_blank", href="https://www.browsersync.io/") Browsersync].
-            li #[strong Jade] -- Jacket is set up with #[a(target="_blank", href="http://jade-lang.com/") Jade] as templating language.
-            li #[strong Sassdoc] -- Scss Mixins, functions and more are documented with #[a(target="_blank", href="http://sassdoc.com/") Sassdoc].
+          blockquote.-mb2(style="margin-right: 0; margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #000; font-size: 1rem; line-height: 1.3rem").
+            A starterkit with a #[strong sane default setup], #[strong a good starting structure] and #[strong powerfull front-end tools] to back you up.
 
-        hr(style="border: 0;height: 1px;background-color: #DDD;")
-        .-ver-p3
-          h3 What #[span(style="color: #d27020") Gulp tasks] can be run?
-          .-ml3.-mb2(style="line-height: 1.4rem")
-            h4.-mb0 #[small gulp] help
-            p.-mt1.
-              The Help task displays all the gulp tasks.
+          blockquote.cf.-mb2(style="color: #d27020; margin-right: 0; margin-left: 0; padding: 10px; padding-left: 15px; border-left: 3px solid #d27020; font-size: 1rem; line-height: 1.3rem")
+            img(style="width: 50px; display: inline-block; vertical-align: middle;" src="img/logo/Yeoman-x2.png").w2
+            span.-display-ib.-pl1.w9(style="vertical-align: middle; margin-left: 5px;").
+              You can use the #[a(style="color: #d27020; font-weight: bold;" href="https://www.npmjs.com/package/generator-jacket" target="_blank") yeoman generator] to generate your project. #[br]
+              #[span(style="font-size: 18px; padding: 5px 10px;border-radius: 3px; background-color: #e9f0f2; color: #4e4e4e; font-family: Times, Times New Roman, Georgia, serif;").-display-ib.-mt1 npm i -g generator-jacket]
 
-            h4.-mb0 #[small gulp] favicons
-            p.-mt1.
-              The Favicons task can generate your favicons with #[a(target="_blank", href="http://realfavicongenerator.net/") Realfavicongenerator].
 
-            h4.-mb0 #[small gulp] sass
-            p.-mt1.
-              The Sass task compiles your #[strong scss] to #[strong css]. <br>
-              This task can do: Globbing, Autoprefixing, Sourcemaps, it includes a jsonImporter and sends a terminal notification when compilation fails.
+    .-hor-p5
+      .-ver-p3
+        h3 What #[span(style="color: #d27020") front-end tools] are included?
+        ul.-mb2(style="line-height: 1.6rem; list-style-type: none;")
+          li #[strong Npm] -- Jacket is an npm package. You can find the package #[a(target="_blank", href="https://www.npmjs.com/package/jacket") here].
+          li #[strong Gulp] -- As a build tool, Jacket uses #[a(target="_blank", href="http://gulpjs.com/") Gulp].
+          li #[strong Sass] -- #[a(target="_blank", href="http://bourbon.io/") Bourbon] & #[a(target="_blank", href="http://neat.bourbon.io/") Neat], #[a(target="_blank", href="https://html5boilerplate.com/") h5bp normalize], #[a(target="_blank", href="https://twitter.com/autoprefixer") autoprefixer] and more.
+          li #[strong Smacss and BEVM] -- Structure is #[a(target="_blank", href="http://smacss.com/") Smacss] based and #[a(target="_blank", href="https://viget.com/extend/bem-sass-modifiers") BEVM] is encouraged.
+          li #[strong Scss linting] -- Scss linting lets you #[a(target="_blank", href="https://github.com/brigade/scss-lint") lint] your scss code.
+          li #[strong BrowserSync] -- For crossdevice testing Jacket uses #[a(target="_blank", href="https://www.browsersync.io/") Browsersync].
+          li #[strong Jade] -- Jacket is set up with #[a(target="_blank", href="http://jade-lang.com/") Jade] as templating language.
+          li #[strong Sassdoc] -- Scss Mixins, functions and more are documented with #[a(target="_blank", href="http://sassdoc.com/") Sassdoc].
 
-            h4.-mb0 #[small gulp] scss-lint
-            p.-mt1.
-              Based on the .scss-lint.yml the Scss-lint task will check if all the scss code you wrote respects the codig standards.
+      hr(style="border: 0;height: 1px;background-color: #DDD;")
+      .-ver-p3
+        h3 What #[span(style="color: #d27020") Gulp tasks] can be run?
+        .-ml3.-mb2(style="line-height: 1.4rem")
+          h4.-mb0 #[small gulp] help
+          p.-mt1.
+            The Help task displays all the gulp tasks.
 
-            h4.-mb0 #[small gulp] jade
-            p.-mt1.
-              The Jade task wil compile all the Jade templates to html files in the dist folder.
+          h4.-mb0 #[small gulp] favicons
+          p.-mt1.
+            The Favicons task can generate your favicons with #[a(target="_blank", href="http://realfavicongenerator.net/") Realfavicongenerator].
 
-            h4.-mb0 #[small gulp] browser-sync
-            p.-mt1.
-              The Browser sync task will serve this index.html file at localhost:3000/
-              and it will watch the scss and jade files and refresh all the devices that are hooked up when these files change.
+          h4.-mb0 #[small gulp] sass
+          p.-mt1.
+            The Sass task compiles your #[strong scss] to #[strong css]. <br>
+            This task can do: Globbing, Autoprefixing, Sourcemaps, it includes a jsonImporter and sends a terminal notification when compilation fails.
 
-            h4.-mb0 #[small gulp] sassdoc
-            p.-mt1.
-              This task can generate all the scss documentation used in Jacket.
+          h4.-mb0 #[small gulp] scss-lint
+          p.-mt1.
+            Based on the .scss-lint.yml the Scss-lint task will check if all the scss code you wrote respects the codig standards.
 
-            h4.-mb0 #[small gulp] watch
-            p.-mt1.
-              This task watches all your files.
+          h4.-mb0 #[small gulp] jade
+          p.-mt1.
+            The Jade task wil compile all the Jade templates to html files in the dist folder.
 
-            h4.-mb0 gulp
-            p.-mt1.
-              The default tasks executes a sequence of tasks, see the #[strong gulpfile.js].
+          h4.-mb0 #[small gulp] browser-sync
+          p.-mt1.
+            The Browser sync task will serve this index.html file at localhost:3000/
+            and it will watch the scss and jade files and refresh all the devices that are hooked up when these files change.
 
-        hr(style="border: 0;height: 1px;background-color: #DDD;")
-        .-ver-p3
-          h3 Where do I find the #[span(style="color: #d27020") documentation]?
-          p You can find the doc #[a(target="_blank", href="sassdoc/index.html") here]
+          h4.-mb0 #[small gulp] sassdoc
+          p.-mt1.
+            This task can generate all the scss documentation used in Jacket.
 
-        hr(style="border: 0;height: 1px;background-color: #DDD;")
-        .-ver-p3
-          h3 How does the #[span(style="color: #d27020") grid] work?
-          p You can find the grid examples #[a(target="_blank", href="grid.html") here]
+          h4.-mb0 #[small gulp] watch
+          p.-mt1.
+            This task watches all your files.
 
-        footer(style="margin-top: 70px;")
-          p(style="text-align: center; color: #808080; font-size: 0.8rem").
-            Jacket &bull; License MIT &bull; &copy; One Agency #{new Date().getFullYear()} &bull; Repository on #[a(target="_blank", href="https://github.com/Crosscheck/Jacket") Github]
+          h4.-mb0 gulp
+          p.-mt1.
+            The default tasks executes a sequence of tasks, see the #[strong gulpfile.js].
+
+      hr(style="border: 0;height: 1px;background-color: #DDD;")
+      .-ver-p3
+        h3 Where do I find the #[span(style="color: #d27020") documentation]?
+        p You can find the doc #[a(target="_blank", href="sassdoc/index.html") here]
+
+      hr(style="border: 0;height: 1px;background-color: #DDD;")
+      .-ver-p3
+        h3 How does the #[span(style="color: #d27020") grid] work?
+        p You can find the grid examples #[a(target="_blank", href="grid.html") here]
+
+      footer(style="margin-top: 70px;")
+        p(style="text-align: center; color: #808080; font-size: 0.8rem").
+          Jacket &bull; License MIT &bull; &copy; One Agency #{new Date().getFullYear()} &bull; Repository on #[a(target="_blank", href="https://github.com/Crosscheck/Jacket") Github]
