@@ -39,6 +39,10 @@ var jade = require('gulp-jade');
 // Css
 var minifyCss = require('gulp-minify-css');
 
+// Favicons
+var realFavicon = require("gulp-real-favicon");
+var fs = require('fs');
+
 // Load configuration file
 var config = require("./config.json");
 
@@ -53,11 +57,12 @@ var errorCallBack = function (error, metadata) {
 };
 
 // -----------------------------------------------------------------------------
-// FAVICONS -- https://github.com/haydenbleasel/favicons
+// FAVICONS -- http://realfavicongenerator.net/
+// NPM -- https://www.npmjs.com/package/gulp-real-favicon
 // -----------------------------------------------------------------------------
 
 gulp.task("favicons", "Generates cross-device favicons from dist/img/logo/favicon.png", function() {
-  return favicons(config.favicons, errorCallBack);
+  realFavicon.generateFavicon(config.favicons);
 });
 
 // -----------------------------------------------------------------------------
@@ -74,8 +79,8 @@ gulp.task("sass", "Compiles your SCSS files to CSS", function () {
         require("node-bourbon").includePaths,
         require("node-neat").includePaths[1],
         require("node-normalize-scss").includePaths,
-        "<%= dest %>/" + config.path.bower + config.path.fontAwesome,
-        "<%= dest %>"
+        config.path.bower + config.path.fontAwesome,
+        "./"
       ],
       importer: jsonImporter,
       outputStyle: config.sass.style

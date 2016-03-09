@@ -42,7 +42,7 @@ $gutter: modular-scale(1, .5em, $golden);
 //// @group Neat Settings
 //// @type Value
 <% } %>
-$max-width: em(<%= siteWidth %>);
+$max-width: <%= siteWidth %>px;
 
 <%if (sassDoc) { %>
 /// When set to true, it sets the box-sizing property of all elements to border-box

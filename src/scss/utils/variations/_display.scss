@@ -1,0 +1,17 @@
+$displays: (none inline block list-item inline-list-item inline-block inline-table table table-cell table-column table-column-group table-footer-group table-header-group table-row table-row-group flex inline-flex grid inline-grid);
+
+@each $display in $displays {
+  $letters: str-every-first-letter($display);
+
+  .-display-#{$letters} {
+    display: $display;
+
+    @each $bp, $val in $breakpoints {
+      &\@#{$bp} {
+        @include media(med($bp)) {
+          display: $display;
+        }
+      }
+    }
+  }
+}

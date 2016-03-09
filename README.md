@@ -1,4 +1,6 @@
-# Jacket
+<p align="left">
+  <img src="http://crosscheck.github.io/Jacket/img/logo/Jacket-large.png" width="350" alt="Jacket"/>
+</p>
 [![npm](https://nodei.co/npm/jacket.png?downloads=true)](https://www.npmjs.org/package/jacket)
 
 [![version](https://img.shields.io/npm/v/jacket.svg)](https://www.npmjs.org/package/jacket)
@@ -13,7 +15,9 @@
 > A starterkit with a **sane default setup**, **a good starting structure** 
 > and **powerfull front-end tools** to back you up.
 
-`npm i jacket`
+### You can use the Yeoman generator for easy setup.
+
+`npm i -g generator-jacket`
 
 ### What front-end tools are included?
 
@@ -70,8 +74,7 @@ This task watches all your files.
 
 ### Sassdoc?
 
-You can find the doc when you run the gulp sassdoc command at 
-localhost:3000/sassdoc/index.html
+You can find the doc when you run the gulp sassdoc command.
 
 ---
 

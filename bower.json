@@ -23,5 +23,8 @@
   ],
   "devDependencies": {
     "font-awesome": "~4.4.0"
+  },
+  "dependencies": {
+    "prism": "~1.4.1"
   }
 }

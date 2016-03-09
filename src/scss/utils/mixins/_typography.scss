@@ -39,7 +39,7 @@
     font-size: $size + px;
   }
 
-  font-size: $size / $rembase + $unit;
+  font-size: $size / strip-units($base-font-size) + $unit;
 }
 
 <%if (sassDoc) { %>
@@ -53,7 +53,7 @@
     line-height: $line-height + px;
   }
 
-  line-height: $line-height / $rembase + $unit;
+  line-height: $line-height / strip-units($base-font-size) + $unit;
 }
 
 <%if (sassDoc) { %>
