@@ -1,6 +1,6 @@
 {
   "name": "jacket",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Jacket is a Scss starterkit based on Gulp, Libsass and scss-lint with some sane default tasks and based on the Smacss and BEVM structures.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
