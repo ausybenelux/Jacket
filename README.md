@@ -1,6 +1,7 @@
 <p align="left">
   <img src="http://oneagency.github.io/Jacket/img/logo/Jacket-large.png" width="350" alt="Jacket"/>
 </p>
+
 [![npm](https://nodei.co/npm/jacket.png?downloads=true)](https://www.npmjs.org/package/jacket)
 
 [![version](https://img.shields.io/npm/v/jacket.svg)](https://www.npmjs.org/package/jacket)
