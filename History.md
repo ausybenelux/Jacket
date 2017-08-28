@@ -20,7 +20,7 @@ v1.0.9 / 2016-03-09
   * #19: removed css
   * #19: removed bower packages
   * #19: ignored css
-  * #22: refactor on font mixins and added size parrameter
+  * #22: refactor on font mixins and added size parameter
   * Issue-17: updating gulp task for generating favicons + added testfile favicon.png
   * Removing modernizr for now
 
